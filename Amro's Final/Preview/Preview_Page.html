@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../JavaScript/App.js" defer></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="module">
+        import { AddToCart } from '../JavaScript/Preview_Page.js';
+        window.AddToCart = AddToCart;
+    </script>
+    <script src="../JavaScript/Preview_Page.js" defer></script>
+    <link rel="stylesheet" href="../CSS/Preview_Display.css">
+</head>
+<body>
+    <h3>Data Visual</h3>
+    <section>
+
+    </section>
+    <section>
+        <img src="" alt="" id="carImage">
+        <h3 id="carName"></h3>
+        <h4 id="carPrice"></h4>
+        <button class="addToCartButtons" onclick="AddToCart()">Add to cart</button>
+    </section>
+</body>
+</html>

@@ -1,0 +1,9 @@
+.product{
+    background-color: rgb(211, 208, 205);
+    width: 50%;
+}
+
+.productImage{
+    width: 300px;
+    height: auto;
+}
