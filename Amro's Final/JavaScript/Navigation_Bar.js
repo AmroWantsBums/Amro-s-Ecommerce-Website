@@ -1,7 +1,7 @@
 const navPages = [
     {name: "Gallary" , href: '/Amro-s-Ecommerce-Website/Gallary/Gallary.html'},
     {name: "Catalogue", href: '/Amro-s-Ecommerce-Website/Catalogue/Catalogue.html'},
-    {name: "Cart", href: 'SampleWebsite/PricingFolder/pricing.html'},
+    {name: "Cart", href: '/Amro-s-Ecommerce-Website/Cart/Cart.html'},
     
 ];
 
