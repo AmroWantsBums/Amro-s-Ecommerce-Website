@@ -1,0 +1,47 @@
+body {
+    background-color: rgb(253, 248, 248);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#ferrariText{
+    height: 11rem;
+    width: auto;
+    z-index: 1;
+}
+
+#ferrariHorse{
+    height: 19rem;
+    width: auto;
+    position: absolute;
+    top: 33%;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+#enterButton{
+    background-color: rgb(255, 4, 4);
+    width: 12rem;
+    height: 2rem;
+    border-radius: 12px;
+}
+
+#videoContainer {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; 
+    /* z-index: 1;  */
+}
+
+video {
+    width: 100%; /* Stretch the video to full width */
+    height: 100%; /* Stretch the video to full height */
+    object-fit: cover; /* Cover the entire area */
+}
