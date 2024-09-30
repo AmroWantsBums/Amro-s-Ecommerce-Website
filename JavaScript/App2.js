@@ -54,7 +54,7 @@ fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
                     return fetch(`https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/${code}/anos/${yearData[0].codigo}`)
                         .then(response => response.json())
                         .then(priceData => {
-                            console.log(priceData);
+                            //console.log(priceData);
                             return {
                                 name: carNames[index], // Use the corresponding name
                                 valor: parseFloat(priceData.Valor.replace('R$', '').replace(/\./g, '').replace(',', '.')),

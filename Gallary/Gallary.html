@@ -5,8 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubble Chart of Cars</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="module"> import { loadNavbar } from "../JavaScript/Navigation_Bar.js"
+        loadNavbar("Gallary")
+    </script>
+    <link rel="stylesheet" href="../CSS/NavigationBar_Display.css">
 </head>
 <body>
+    
+    <header>
+        <nav id="navBar">
+
+        </nav>
+    </header>
+
     <section id="wordMap"></section> <!-- Ensure this ID matches in your JS -->
     <div id="tooltip"></div>
     <button id="split">Split Bubbles by Decade</button>

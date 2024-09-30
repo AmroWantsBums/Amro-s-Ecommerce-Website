@@ -1,0 +1,55 @@
+#navBar{
+    display: flex;
+}
+
+#navBar ul{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navBarOption{
+    position: relative;
+    display: flex;
+    border-radius: 24px;
+    width: 80px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    animation: loadOption 0.5s ease forwards;
+}
+
+.navBarOption a{
+    text-decoration: none;
+    color: black;
+}
+
+header{
+    
+}
+
+
+.make-wider {
+    animation: makeWider 0.5s ease forwards;
+}
+
+@keyframes loadOption{
+    from {
+        top: 50px;
+    }
+    to {
+        top: 0px;
+    }
+}
+
+@keyframes makeWider{
+    from {
+        width: 38px;
+        background-color: rgb(0, 0, 0);
+    }
+    to {
+        width: 80px;
+        background-color: pink;
+    }
+}
+
