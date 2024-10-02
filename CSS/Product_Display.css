@@ -1,10 +1,13 @@
 #container{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: minmax(300px, auto);
     height: 700px;
     width: 700px;
     overflow: auto;
+    gap: 20px;
+    position: relative;
+    left: 23rem;
 }
 
 body{
@@ -19,9 +22,11 @@ body{
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    background-color: rgb(171, 165, 165);
+    background-color: rgba(171, 165, 165, 0.099);
 }
 
 .productImage{
     width: 180px;
+    height: 120px;
+    border-radius: 18px;
 }
