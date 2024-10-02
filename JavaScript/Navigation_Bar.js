@@ -2,7 +2,9 @@ const navPages = [
     {name: "Gallary" , href: '/Amro-s-Ecommerce-Website/Gallary/Gallary.html'},
     {name: "Catalogue", href: '/Amro-s-Ecommerce-Website/Catalogue/Catalogue.html'},
     {name: "Cart", href: '/Amro-s-Ecommerce-Website/Cart/Cart.html'},
-    
+    {name: "Essay", href: '/Amro-s-Ecommerce-Website/Course Work/Essay.html'},
+    {name: "About Me", href: '/Amro-s-Ecommerce-Website/Course Work/About_Me.html'},
+    {name: "Design", href: '/Amro-s-Ecommerce-Website/Course Work/Web Design.html'}
 ];
 
 export function loadNavbar(CurrentPageName){
