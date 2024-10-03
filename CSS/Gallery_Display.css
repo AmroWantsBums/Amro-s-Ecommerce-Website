@@ -1,0 +1,21 @@
+#tooltip {
+    width: 50%; /* Tooltip area */
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute; /* Use absolute positioning */
+    top: 0rem;
+    left: 50rem;
+    transition: opacity 0.2s ease; /* Transition for opacity */
+    opacity: 0; /* Start with zero opacity */
+    display: none; /* Initially hidden */
+}
+
+#tooltip.visible {
+    display: block; /* Show when visible */
+}
+
+.tooltipImage{
+    width: 40rem;
+    height: 40rem;
+}

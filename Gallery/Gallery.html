@@ -6,9 +6,10 @@
     <title>Bubble Chart of Cars</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script type="module"> import { loadNavbar } from "../JavaScript/Navigation_Bar.js"
-        loadNavbar("Gallary")
+        loadNavbar("Gallery")
     </script>
     <link rel="stylesheet" href="../CSS/NavigationBar_Display.css">
+    <link rel="stylesheet" href="../CSS/Gallery_Display.css">
 </head>
 <body>
         
@@ -18,8 +19,16 @@
         </nav>
     </header>
 
-    <section id="wordMap"></section> 
-    <div id="tooltip"></div>
+    <section id="wordMap">
+
+    </section>
+
+    <div id="tooltip">
+        <img src="" alt="" class="tooltipImage">
+        <h4 id="tooltipName"></h4>
+        <h4 id="tooltipPrice"></h4>
+    </div>
+
     <button id="split">Split Bubbles by Decade</button>
     
     <script src="../JavaScript/App2.js"></script>

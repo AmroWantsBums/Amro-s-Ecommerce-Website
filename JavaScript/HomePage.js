@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
 
         backgroundVideo.addEventListener('ended', () => {
-            window.location.href = `./Gallary/Gallary.html`;
+            window.location.href = `./Gallery/Gallery.html`;
         });
     });
 });

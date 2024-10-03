@@ -70,8 +70,8 @@ fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
     })
     .catch(error => console.error("Error fetching data:", error));
 
-    // Create bubbles
-// Create bubbles
+
+   // Create bubbles
 function CreateBubbles(data) {
     let bubbles = svg
         .selectAll("circle")
@@ -81,55 +81,46 @@ function CreateBubbles(data) {
         .attr("r", fixedRadius) // Set initial fixed radius
         .style("fill", () => randomRedShade()) // Use a random color from the array
         .on("mouseover", (event, d) => {
-            // Store the original color for resetting later
-            const originalColor = d3.select(event.target).style("fill");
-
+            // Update tooltip content
             d3.select("#tooltip")
                 .style("display", "block")
-                .html(`Name: ${d.name}<br>Price: R$${d.valor.toFixed(2)}<br>Fuel: ${d.fuel}`)
-                .style("left", (event.pageX + 5) + "px")
-                .style("top", (event.pageY - 28) + "px");
+                .html(`
+                    <img src="../Catalogue/Images/${d.name.replace(/\//g, '')}.jpg" alt="${d.name}" id="tooltipImage">
+                    <h4 id="tooltipName">${d.name}</h4>
+                    <h4 id="tooltipPrice">Price: R$${d.valor.toFixed(2)}</h4>
+                    <p>Fuel: ${d.fuel}</p>
+                `)
+                .style("opacity", 1); // Ensure the tooltip is visible
 
-            // Set all circles to low opacity
+            // Highlight the current bubble
             bubbles.style("opacity", 0.2);
             d3.select(event.target)
-                .style("opacity", 1) 
-                .style("fill", 'rgb(255, 0, 0)'); // Set the hovered circle to red
+                .style("opacity", 1)
+                .style("fill", 'rgb(255, 0, 0)'); // Highlight the current bubble
 
             // Increase the radius of the hovered circle
             d3.select(event.target)
                 .transition() // Add a transition for smooth enlargement
                 .duration(200)
                 .attr("r", fixedRadius * 1.5); // Increase the radius
-
-            // Restart the simulation
-            simulation.alpha(0.3).restart();
-
-            // Save original color to reset on mouseout
-            d3.select(event.target).attr("data-original-color", originalColor);
         })
         .on("mousemove", (event) => {
+            // Update tooltip position using CSS
             d3.select("#tooltip")
-                .style("left", (event.pageX + 5) + "px")
                 .style("top", (event.pageY - 28) + "px");
         })
         .on("mouseout", (event) => {
-            d3.select("#tooltip").style("display", "none");
-
-            // Reset opacity for all circles
-            bubbles.style("opacity", 1); // Reset all circles to full opacity
-            
             // Reset the radius of the hovered circle
             d3.select(event.target)
                 .transition() // Add a transition for smooth shrinking
                 .duration(200)
                 .attr("r", fixedRadius) // Reset to original radius
                 .style("fill", d3.select(event.target).attr("data-original-color")); // Reset to original color
-
-            // Restart the simulation
-            simulation.alpha(0.3).restart();
+            
+            // Do not hide the tooltip; keep it displayed
         });
 
+    // Position the text elements at the center of the circles
     let text = svg
         .selectAll("text")
         .data(data)
@@ -138,7 +129,6 @@ function CreateBubbles(data) {
         .attr("dy", ".35em") // Center the text vertically
         .attr("text-anchor", "middle") // Center the text horizontally
         .style("font-size", `${fixedRadius / 4}px`) // Dynamic font size
-        //.style("fill", "white") // Ensure text is visible
         .style("pointer-events", "none") // Prevent mouse events on text
         .text(d => {
             const maxLength = Math.floor(fixedRadius / 5);
