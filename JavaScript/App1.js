@@ -1,50 +1,39 @@
+function CreateDataVisualization(carFetchLink) {
+    let dataPoints = [];
 
-function CreateDataVisualization(code){
-    
-} 
-
-let dataPoints = [];
-
-fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/10159/anos')
-    .then((response) => response.json())
-    .then((data) => {
-        createxScale(data);
-        createyScale(data);
-        let carCodes = data.map(car => car.codigo);
-        let promises = carCodes.map(code => {
-            return fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/10159/anos/' + code)
-                .then(response => response.json())
-                .then(data => {
-                    // Calculate valor here
-                    let valor = parseFloat(data.Valor
-                        .replace('R$', '')
-                        .replace(/\./g, '')
-                        .replace(',', '.'));
-                    
-                    // Check if valor is valid
-                    if (!isNaN(valor) && data.AnoModelo >= 2021 && data.AnoModelo <= 2024) {
-                        dataPoints.push({
-                            x: xScale(data.AnoModelo),
-                            y: yScale(valor)
-                        });
-
-                        // Create circle for this data
-                        svg.append("circle")
-                            .attr("class", "circles")
-                            .attr("r", 4)
-                            .attr("cx", xScale(data.AnoModelo))
-                            .attr("cy", yScale(valor));
-                    }
+    // Fetch the data using the provided full URL
+    fetch(carFetchLink)
+        .then(response => response.json())
+        .then(data => {
+            // Calculate the price value
+            let valor = parseFloat(data.Valor
+                .replace('R$', '')
+                .replace(/\./g, '')
+                .replace(',', '.'));
+            
+            // Check if valor is valid
+            if (!isNaN(valor) && data.AnoModelo >= 2021 && data.AnoModelo <= 2024) {
+                dataPoints.push({
+                    x: xScale(data.AnoModelo),
+                    y: yScale(valor)
                 });
-        });
-        return Promise.all(promises);
-    })
-    .then(() => {
-        // Sort the dataPoints by x value (AnoModelo)
-        dataPoints.sort((a, b) => a.x - b.x);
-        createLine(); // Call function to create line after all promises are resolved
-    });
 
+                // Create circle for this data
+                svg.append("circle")
+                    .attr("class", "circles")
+                    .attr("r", 4)
+                    .attr("cx", xScale(data.AnoModelo))
+                    .attr("cy", yScale(valor));
+            }
+        })
+        .then(() => {
+            // Sort the dataPoints by x value (AnoModelo)
+            dataPoints.sort((a, b) => a.x - b.x);
+            createLine(); // Call function to create line after all promises are resolved
+        });
+}
+
+// Visualization setup
 let HEIGHT = 600,
     WIDTH = 800, 
     MARGIN = 80;
