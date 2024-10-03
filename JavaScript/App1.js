@@ -1,3 +1,8 @@
+
+function CreateDataVisualization(code){
+    
+} 
+
 let dataPoints = [];
 
 fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/10159/anos')

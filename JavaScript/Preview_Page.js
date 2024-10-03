@@ -4,6 +4,7 @@ function getQueryParams() {
         name: params.get('name'),
         price: params.get('price'),
         image: params.get('image'),
+        fetchLink: params.get('fetchLink')
     };
 }
 
@@ -21,6 +22,7 @@ carImage.src = carDetails.image;
 carName.innerText = carDetails.name;
 carPrice.innerText = carDetails.price;
 
+console.log(carDetails.fetchLink);
 
 export function AddToCart(){
 
