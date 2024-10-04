@@ -8,20 +8,38 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script type="module">
         import { AddToCart } from '../JavaScript/Preview_Page.js';
-        window.AddToCart = AddToCart; // Make AddToCart available globally
+        window.AddToCart = AddToCart; 
     </script>
     <link rel="stylesheet" href="../CSS/Preview_Display.css">
+    <script type="module"> import { loadNavbar } from "../JavaScript/Navigation_Bar.js"
+        loadNavbar("Preview")
+    </script>
+    <link rel="stylesheet" href="../CSS/NavigationBar_Display.css">
 </head>
 <body>
-    <h3>Data Visual</h3>
-    <section>
         
-    </section>
-    <section>
-        <img src="" alt="" id="carImage">
-        <h3 id="carName"></h3>
-        <h4 id="carPrice"></h4>
-        <button class="addToCartButtons" onclick="AddToCart()">Add to cart</button>
-    </section>
+    <header>
+        <nav id="navBar">
+
+        </nav>
+    </header>
+
+    <div id="main">
+
+        <section id="carDeets">
+            <img src="" alt="" id="carImage">
+            <h3 id="carName"></h3>
+            <h4 id="carPrice"></h4>
+            <button class="addToCartButtons" onclick="AddToCart()">Add to cart</button>
+        </section>
+
+        <div id="dataSection">
+            <section id="dataVisalization">
+        
+            </section>
+            <h4 id="priceTrendText">Price trend</h4>
+            <h5 id="interactivity">hover over the points for details</h5>
+        </div>
+    </div>
 </body>
 </html>

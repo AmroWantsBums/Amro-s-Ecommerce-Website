@@ -1,4 +1,32 @@
 #carImage {
-    width: 400px;
+    width: 700px;
     height: auto;
+    border-radius: 20px;
+}
+
+#main{
+    display: flex;
+    gap: 10rem;
+}
+
+#carDeets{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dataSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#priceTrendText{
+    position: relative;
+    top: -9rem;
+}
+
+#interactivity{
+    position: relative;
+    top: -11rem;
 }
