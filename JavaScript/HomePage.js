@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const ferrariHorse = document.getElementById('ferrariHorse');
     const videoContainer = document.getElementById('videoContainer');
     const backgroundVideo = document.getElementById('backgroundVideo');
+    const audio = document.getElementById('engineStartupAudio');
+    const backgroundAudio = document.getElementById('backgroundAudio');
+
+
 
     enterButton.addEventListener('click', () => {
         textElements.forEach(element => {
@@ -15,6 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ferrariHorse.style.transition = 'opacity 0.5s ease';
         enterButton.style.opacity = 0; 
         enterButton.style.transition = 'opacity 0.5s ease';
+        backgroundAudio.play();
+           
+        backgroundAudio.volume = 0.7;
         
         setTimeout(() => {
             ferrariText.style.transition = 'transform 1s ease'; // Set transition for transform
@@ -31,8 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
             backgroundVideo.play();
         }, 3000);
 
+        setTimeout(() => {
+            audio.play();        
+            audio.volume = 1;
+        }, 8200)
+
+
         backgroundVideo.addEventListener('ended', () => {
-            window.location.href = `./Gallery/Gallery.html`;
+            //window.location.href = `./Gallery/Gallery.html`;
         });
     });
 });
