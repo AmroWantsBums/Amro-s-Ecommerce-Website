@@ -1,41 +1,73 @@
-function CreateDataVisualization(carFetchLink) {
-    let dataPoints = [];
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        name: params.get('name'),
+        price: params.get('price'),
+        image: params.get('image'),
+        fetchLink: params.get('fetchLink')
+    };
+}
 
-    // Fetch the data using the provided full URL
+const carDetails = getQueryParams();
+let dataPoints = [];
+CreateDataVisualization(carDetails.fetchLink);
+
+function CreateDataVisualization(carFetchLink) {
     fetch(carFetchLink)
         .then(response => response.json())
         .then(data => {
-            // Calculate the price value
-            let valor = parseFloat(data.Valor
-                .replace('R$', '')
-                .replace(/\./g, '')
-                .replace(',', '.'));
-            
-            // Check if valor is valid
-            if (!isNaN(valor) && data.AnoModelo >= 2021 && data.AnoModelo <= 2024) {
-                dataPoints.push({
-                    x: xScale(data.AnoModelo),
-                    y: yScale(valor)
-                });
+            console.log(data);
+            const fetchPromises = data.map(car => {
+                const modelFetchLink = `${carFetchLink}/${car.codigo}`;
+                return fetch(modelFetchLink)
+                    .then(response => response.json())
+                    .then(modelData => {
+                        console.log(modelData);
+                        let valor = parseFloat(modelData.Valor.replace('R$', '').replace(/\./g, '').replace(',', '.'));
 
-                // Create circle for this data
-                svg.append("circle")
-                    .attr("class", "circles")
-                    .attr("r", 4)
-                    .attr("cx", xScale(data.AnoModelo))
-                    .attr("cy", yScale(valor));
-            }
+                        if (!isNaN(valor) && modelData.AnoModelo >= 1990 && modelData.AnoModelo <= 2024) {
+                            console.log(`Adding point for year: ${modelData.AnoModelo} with value: ${valor}`);
+                            dataPoints.push({
+                                x: modelData.AnoModelo,
+                                y: valor
+                            });
+                        } else {
+                            console.error(`Invalid data: ModelYear = ${modelData.AnoModelo}, Valor = ${valor}`);
+                        }
+                    });
+            });
+
+            return Promise.all(fetchPromises);
         })
         .then(() => {
-            // Sort the dataPoints by x value (AnoModelo)
-            dataPoints.sort((a, b) => a.x - b.x);
-            createLine(); // Call function to create line after all promises are resolved
-        });
+            console.log(dataPoints); // Log all data points
+
+            // Update scales based on actual data points
+            xScale.domain(d3.extent(dataPoints, d => d.x)); // Adjust x-axis domain
+            yScale.domain([0, d3.max(dataPoints, d => d.y)]); // Adjust y-axis domain based on max value
+
+            createxScale();  // Call after updating domains
+            createyScale();  // Call after updating domains
+
+            // Now, plot circles after the scales are updated
+            svg.selectAll("circle")
+                .data(dataPoints)
+                .enter()
+                .append("circle")
+                .attr("class", "circles")
+                .attr("r", 4)
+                .attr("cx", d => xScale(d.x) + MARGIN)  // x-axis is based on AnoModelo
+                .attr("cy", d => yScale(d.y) + MARGIN);  // y-axis is based on Valor
+
+            createLine(); // Call to create the line after all points are plotted
+        })
+        .catch(error => console.error('Error fetching data:', error));
 }
+
 
 // Visualization setup
 let HEIGHT = 600,
-    WIDTH = 800, 
+    WIDTH = 800,
     MARGIN = 80;
 
 let svg = d3.select("section")
@@ -43,16 +75,16 @@ let svg = d3.select("section")
     .attr("height", HEIGHT + MARGIN + MARGIN)
     .attr("width", WIDTH + MARGIN + MARGIN);
 
-let xScale = d3.scaleLinear().domain([2021, 2025]).range([0, WIDTH]);
-let yScale = d3.scaleLinear().domain([3200000, 4500000]).range([HEIGHT, 0]);
+let xScale = d3.scaleLinear().range([0, WIDTH]); // Remove hardcoded domain, to be updated with data
+let yScale = d3.scaleLinear().range([HEIGHT, 0]); // Remove hardcoded domain, to be updated with data
 
-function createxScale(data) {
+function createxScale() {
     svg.append("g")
         .attr("transform", `translate(${MARGIN}, ${HEIGHT})`)
         .call(d3.axisBottom(xScale));
 }
 
-function createyScale(data) {
+function createyScale() {
     svg.append("g")
         .attr("transform", `translate(${MARGIN}, 0)`)
         .call(d3.axisLeft(yScale));
@@ -61,8 +93,8 @@ function createyScale(data) {
 function createLine() {
     // Create a line generator
     const lineGenerator = d3.line()
-        .x(d => d.x)
-        .y(d => d.y);
+        .x(d => xScale(d.x) + MARGIN) // Adjust x based on the scale and margin
+        .y(d => yScale(d.y) + MARGIN); // Adjust y based on the scale and margin
 
     // Append the line to the SVG
     svg.append("path")
