@@ -1,5 +1,5 @@
 #tooltip {
-    width: 50%; /* Tooltip area */
+    width: 50rem; /* Tooltip area */
     padding: 20px;
     border: 1px solid #ccc;
     background-color: rgba(255, 255, 255, 0.9);
@@ -9,13 +9,14 @@
     transition: opacity 0.2s ease; /* Transition for opacity */
     opacity: 0; /* Start with zero opacity */
     display: none; /* Initially hidden */
+    overflow: hidden;
 }
 
 #tooltip.visible {
     display: block; /* Show when visible */
 }
 
-.tooltipImage{
-    width: 40rem;
-    height: 40rem;
+#tooltipImage{
+    width: 50rem;
+    height: auto;
 }

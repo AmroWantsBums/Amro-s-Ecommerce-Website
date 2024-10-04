@@ -20,7 +20,6 @@ function createCartPlaceHolder(name, price, image){
             <img src="${image}" alt="" class="productImage">
             <h4 class="productName">${name}</h4>
             <h5 class="productPrice">${price}</h5>
-            <button class="removeButton">Remove from cart</button>
         </div>
     `
     CartContainer.innerHTML = CartContainer.innerHTML + itemHtml;
