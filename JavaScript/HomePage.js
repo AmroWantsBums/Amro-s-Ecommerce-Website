@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         backgroundVideo.addEventListener('ended', () => {
-            //window.location.href = `./Gallery/Gallery.html`;
+            window.location.href = `./Gallery/Gallery.html`;
         });
     });
 });

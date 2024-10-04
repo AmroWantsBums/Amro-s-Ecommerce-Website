@@ -6,8 +6,8 @@ let svg = d3
     .select("#wordMap")
     .append("svg")
     .attr("height", HEIGHT)
-    .attr("width", WIDTH);
-
+    .attr("width", WIDTH)
+    
 // Create a fixed radius for the bubbles
 let fixedRadius = 40;
 
@@ -28,16 +28,16 @@ function randomRedShade() {
 }
 
 // Set up forces for the simulation
-const forceX = d3.forceX(WIDTH / 2).strength(0.05);
-const forceY = d3.forceY(HEIGHT / 2).strength(0.05);
+const forceX = d3.forceX(WIDTH / 2).strength(0.2);  
+const forceY = d3.forceY(HEIGHT / 2).strength(0.2);
 const collideForce = d3.forceCollide(fixedRadius + 2);
-const forceXSplit = d3.forceX(d => d.decade === "pre-2000" ? 300 : 1000);
 
-const simulation = d3
-    .forceSimulation()
+const simulation = d3.forceSimulation()
     .force("x", forceX)
     .force("y", forceY)
-    .force("collide", collideForce);
+    .force("collide", collideForce)
+    .alphaTarget(0.6)  // Helps stabilize faster
+    .restart();
 
 // Fetch car data
 fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
@@ -54,12 +54,11 @@ fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
                     return fetch(`https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/${code}/anos/${yearData[0].codigo}`)
                         .then(response => response.json())
                         .then(priceData => {
-                            //console.log(priceData);
                             return {
                                 name: carNames[index], // Use the corresponding name
                                 valor: parseFloat(priceData.Valor.replace('R$', '').replace(/\./g, '').replace(',', '.')),
                                 fuel: priceData.Combustivel || 'Unknown', // Fallback if fuel is undefined
-                                year : priceData.AnoModelo
+                                year: priceData.AnoModelo
                             };
                         });
                 });
@@ -71,7 +70,7 @@ fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
     .catch(error => console.error("Error fetching data:", error));
 
 
-   // Create bubbles
+// Create bubbles
 function CreateBubbles(data) {
     let bubbles = svg
         .selectAll("circle")
@@ -79,6 +78,8 @@ function CreateBubbles(data) {
         .enter()
         .append('circle')
         .attr("r", fixedRadius) // Set initial fixed radius
+        .attr("cx", () => Math.random() * WIDTH) // Random initial x position
+        .attr("cy", () => Math.random() * HEIGHT) // Random initial y position
         .style("fill", () => randomRedShade()) // Use a random color from the array
         .on("mouseover", (event, d) => {
             // Update tooltip content
@@ -103,11 +104,6 @@ function CreateBubbles(data) {
                 .transition() // Add a transition for smooth enlargement
                 .duration(200)
                 .attr("r", fixedRadius * 1.5); // Increase the radius
-        })
-        .on("mousemove", (event) => {
-            // Update tooltip position using CSS
-            d3.select("#tooltip")
-                .style("top", (event.pageY - 28) + "px");
         })
         .on("mouseout", (event) => {
             // Reset the radius of the hovered circle
@@ -137,15 +133,12 @@ function CreateBubbles(data) {
 
     // Position the text elements at the center of the circles
     simulation.nodes(data)
-        .on("tick", () => {
-            bubbles.attr("cx", d => d.x)
-                   .attr("cy", d => d.y);
+    .on("tick", () => {
+        bubbles.attr("cx", d => d.x)
+               .attr("cy", d => d.y);
 
-            text.attr("x", d => d.x)
-                .attr("y", d => d.y); // Position text at the center of the circle
-        });
-
-    d3.select("#split").on("click", function() {
-        simulation.force("x", forceXSplit).alphaTarget(0.6).restart();
+        text.attr("x", d => d.x)
+            .attr("y", d => d.y);
     });
+
 }
