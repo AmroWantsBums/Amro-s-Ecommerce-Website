@@ -77,7 +77,7 @@ fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
         // Pass the fetched car data to the CreateBubbles function for visualization.
         CreateBubbles(results);
     })
-    .catch(error => console.error("Error fetching data:", error));
+    .catch(error => console.error(error));
 
 // The CreateBubbles function generates the visual representation of the data by creating circles for each car model.
 function CreateBubbles(data) {

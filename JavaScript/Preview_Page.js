@@ -11,11 +11,6 @@ function getQueryParams() {
 
 const carDetails = getQueryParams(); // Fetch the car details from the URL
 
-// Log the car details for debugging
-console.log(carDetails.name);  // Access car name
-console.log(carDetails.price); // Access car price
-console.log(carDetails.image); // Access car image URL
-
 // Select the HTML elements where car details will be displayed
 let carImage = document.querySelector("#carImage"); // Get the image element
 let carName = document.querySelector("#carName"); // Get the name element

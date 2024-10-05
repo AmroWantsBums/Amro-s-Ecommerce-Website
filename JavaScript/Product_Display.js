@@ -10,7 +10,6 @@ let carFetchLinks = []; // Array to store fetch links for future use
 fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
     .then((response) => response.json()) // Parse the response as JSON
     .then(data => {
-        console.log(data); // Log the fetched data for debugging
         let carData = data.modelos; // Get the car models from the data
         carNames = carData.map(car => car.nome); // Extract car names
         let carCodes = carData.map(car => car.codigo); // Extract car codes

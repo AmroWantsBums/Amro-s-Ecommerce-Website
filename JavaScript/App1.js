@@ -86,7 +86,7 @@ function CreateDataVisualization(carFetchLink) {
 
             createLine(); // Draw the connecting line after plotting the circles.
         })
-        .catch(error => console.error('Error fetching data:', error)); // Handle any errors during fetching.
+        .catch(error => console.error(error)); // Handle any errors during fetching.
 }
 
 // Visualization setup with defined dimensions and margins.
