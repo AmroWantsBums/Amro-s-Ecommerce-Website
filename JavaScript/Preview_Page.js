@@ -26,14 +26,5 @@ carImage.src = carDetails.image; // Set the image source
 carName.innerText = carDetails.name; // Set the name text
 carPrice.innerText = carDetails.price; // Set the price text
 
-console.log(carDetails.fetchLink); // Log the fetch link for debugging (if needed)
 
-// Function to add the car to the cart
-export function AddToCart() {
-    const name = encodeURIComponent(carName.innerText); // Encode the car name for URL
-    const price = encodeURIComponent(carPrice.innerText); // Encode the car price for URL
-    const image = encodeURIComponent(carImage.src); // Encode the car image URL for URL
 
-    // Redirect to the cart page with the car details as query parameters
-    window.location.href = `../Cart/Cart.html?name=${name}&price=${price}&image=${image}`;
-}
