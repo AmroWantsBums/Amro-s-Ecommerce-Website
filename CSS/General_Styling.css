@@ -3,5 +3,17 @@ body{
     background-color: rgb(253, 248, 248);
 }
 
+::-webkit-scrollbar {
+    width: 12px; 
+    height: 12px; 
+}
 
+::-webkit-scrollbar-track {
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #000000, #ff1e1e); 
+    border-radius: 10px; 
+}
 
