@@ -1,5 +1,7 @@
 #navBar{
     display: flex;
+    border-bottom-style: solid;
+    border-color: rgb(169, 1, 1);
 }
 
 #navBar ul{

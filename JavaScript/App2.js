@@ -27,17 +27,19 @@ function randomRedShade() {
     return redShades[randomIndex];
 }
 
-// Set up forces for the simulation
-const forceX = d3.forceX(WIDTH / 2).strength(0.2);  
-const forceY = d3.forceY(HEIGHT / 2).strength(0.2);
-const collideForce = d3.forceCollide(fixedRadius + 2);
+const forceX = d3.forceX(WIDTH / 2).strength(0.05); // Lower strength to pull to center slower
+const forceY = d3.forceY(HEIGHT / 2).strength(0.05); // Lower strength to pull to center slower
+const collideForce = d3.forceCollide(fixedRadius + 2).strength(1); // Stronger collision force to prevent overlap
 
 const simulation = d3.forceSimulation()
     .force("x", forceX)
     .force("y", forceY)
     .force("collide", collideForce)
-    .alphaTarget(0.6)  // Helps stabilize faster
+    .velocityDecay(0.2)  // Add velocity decay to slow down movement
+    .alphaTarget(0.05)   // Lower alpha target to make it cool down faster
+    .alphaDecay(0.02)    // Increase alpha decay to make simulation stop faster
     .restart();
+
 
 // Fetch car data
 fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
