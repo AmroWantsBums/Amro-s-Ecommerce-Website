@@ -1,7 +1,7 @@
 #navBar{
     display: flex;
     border-bottom-style: solid;
-    border-color: rgb(169, 1, 1);
+    border-color: rgb(211, 0, 0);
 }
 
 #navBar ul{
@@ -27,7 +27,10 @@
 }
 
 header{
-    
+    position: sticky;
+    top: 0; 
+    z-index: 1000; 
+    background-color: rgb(253, 248, 248);
 }
 
 
