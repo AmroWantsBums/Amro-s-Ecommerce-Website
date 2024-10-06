@@ -9,7 +9,7 @@ function getQueryParams() {
     };
 }
 
-const carDetails = getQueryParams(); // Fetch the car details from the URL
+const carDetailse = getQueryParams(); // Fetch the car details from the URL
 
 // Select the HTML elements where car details will be displayed
 let carImage = document.querySelector("#carImage"); // Get the image element
@@ -17,9 +17,9 @@ let carName = document.querySelector("#carName"); // Get the name element
 let carPrice = document.querySelector("#carPrice"); // Get the price element
 
 // Set the selected elements with the car details from the URL
-carImage.src = carDetails.image; // Set the image source
-carName.innerText = carDetails.name; // Set the name text
-carPrice.innerText = carDetails.price; // Set the price text
+carImage.src = carDetailse.image; // Set the image source
+carName.innerText = carDetailse.name; // Set the name text
+carPrice.innerText = carDetailse.price; // Set the price text
 
 
 
