@@ -1,5 +1,5 @@
 // Select the container where the products will be displayed
-const Container = document.querySelector("#container");
+const Container = document.getElementById("main");
 
 // Arrays to hold car names, prices, and fetch links
 let carNames = [];
@@ -42,8 +42,8 @@ fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
 */
 
 // Hardcoded data for testing
-carNames = ['348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4']; // Example car names
-carPrices = ['$20,000', '$25,000', '$30,000']; // Example car prices
+carNames = ['360 Spider 400cv', '360 Challenge Stradale', '575M Maranello F1 V12 515cv', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4']; // Example car names
+carPrices = ['$20,000', '$25,000', '$30,000', '$40,000', '$50,000', '$60,000', '$70,000', '$80,000']; // Example car prices
 carFetchLinks = ['https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/10624/anos/32000-1', 'https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/10624/anos/2024-1', 'https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/10624/anos/2023-1']; // Example fetch links
 
 // Call the function to create product elements
@@ -56,18 +56,15 @@ function createProducts() {
         return `
             <div class="product">
                 <img src="./Images/${sanitizedName}.jpg" alt="" class="productImage"> <!-- Display car image -->
-                <h3 class="productName">
-                    ${name} <!-- Display car name -->
-                </h3>
-                <h4 class="productPrice">
-                    ${carPrices[index] || '$0.00'} <!-- Display car price, default to $0.00 if undefined -->
-                </h4>
-                <button class="viewButton" onclick="viewCarFunctionallity(this, ${index})">
-                    View
-                </button> <!-- Button to view car details -->
+                <div class="deets">
+                <h3 class="productName">${name}</h3> <!-- Display car name -->
+                <h4 class="productPrice">${carPrices[index] || '$0.00'}</h4> <!-- Display car price -->
+                <button class="viewButton" onclick="viewCarFunctionallity(this, ${index})"><span>View</span></button> <!-- Button to view car details -->
+                </div>
             </div>`;
     }).join(""); // Join the array of HTML strings into one
 }
+
 
 // Function to handle viewing car details
 function viewCarFunctionallity(CarButton, index) {

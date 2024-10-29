@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="../JavaScript/Product_Display.js" defer></script>
+    <title>Car Gallery</title>
     <link rel="stylesheet" href="../CSS/Product_Display.css">
     <script type="module">
         import { viewCarFunctionallity } from '../JavaScript/Product_Display.js';
         window.viewCarFunctionallity = viewCarFunctionallity;
     </script>
     <script type="module"> import { loadNavbar } from "../JavaScript/Navigation_Bar.js"
-        loadNavbar("Gallary")
+        loadNavbar("Catalogue")
     </script>
     <link rel="stylesheet" href="../CSS/NavigationBar_Display.css">
 </head>
 
 <body>
-    
-<header>
-    <nav id="navBar">
 
-    </nav>
-</header>
+    <header>
+        <nav id="navBar">
+        </nav>
+    </header>
 
-    <section id="container">
+    <img src="./Images/FlavourImage.png" alt="" id="SideImage">
 
-    </section>
+    <div id="desc">
+        <h1>See what you like?</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere corrupti eius cum, labore veniam architecto
+            quidem voluptatem dicta numquam? Illum dolorem dolore amet fuga possimus necessitatibus vitae ab voluptates
+            reprehenderit.
+        </p>
+    </div>
+
+    <div id="main">
+        <!-- Products will be dynamically generated here -->
+    </div>
+
+
+    <script src="../JavaScript/Product_Display.js" defer></script>
+    <script src="../JavaScript/Catalogue_Interactivity.js" defer></script>
 </body>
+
 </html>

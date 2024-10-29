@@ -1,47 +1,113 @@
-#container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Default: 3 columns */
-    grid-template-rows: minmax(300px, auto);
-    height: 700px;
-    max-width: 100%; /* Allow the container to be responsive */
-    margin: 0 auto; /* Center the container */
-    overflow: auto;
-    gap: 20px;
-    position: relative;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(243, 243, 243);
+    overflow-x: hidden;
 }
 
-/* Media query for responsiveness */
-@media (max-width: 1100px) {
-    #container {
-        grid-template-columns: repeat(2, 1fr); /* Change to 2 columns */
-    }
+#main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto; /* Limit height to allow scrolling */
+    padding: 20px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin-right: 15rem;
 }
 
 .product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: solid;
+    border-radius: 30px;
+    width: 36rem;
+    transition: width 0.5s ease;
+}
+
+.productImage{
+    width: auto;
+    height: 20rem;
+    border-radius: 20px;
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.5s ease; /* Smooth transition for opacity */
+}
+
+.productImage.show {
+    opacity: 1; 
+}
+
+.productName {
+    font-size: 4rem;
+    text-align: center; /* Ensure text is centered */
+    width: 100%; /* Take full width of the parent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: min-content;
+    margin: 0;
+}
+
+.productPrice {
+    font-size: 2rem;
+}
+
+.viewButton {
+    width: 5rem;
+    height: 3rem;
+    border-radius: 2rem;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    background-color: #919191; /* Default background */
+    color: black; /* Default text color */
+    transition: color 0.5s ease; /* Smooth color transition */
+}
+
+.viewButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    background: linear-gradient(45deg, #ff0000, #140e0e);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.viewButton:hover::before {
+    transform: translateX(0);
+}
+
+.viewButton:hover {
+    color: rgb(115, 114, 114); /* Change text color on hover */
+    cursor: pointer;
+    background-color: #919191; /* Keep solid background on hover */
+    z-index: 1; /* Ensure button remains on top */
+}
+
+.viewButton span {
+    position: relative; /* Position text relative to button */
+    z-index: 1; /* Keep text above the gradient */
+}
+
+
+
+.deets{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
-    background-color: rgba(234, 227, 227, 0.952);
+    width: 40rem;
+    height: auto;
+    position: absolute;
+    left: 0rem;
+    transition: left 0.3s ease;
 }
 
-.productImage {
-    width: 100%; /* Make image responsive */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 180px; /* Limit maximum width */
-    max-height: 120px; /* Limit maximum height */
-    border-radius: 18px;
-}
 
-body{
-    font-family: 'Poppins', sans-serif;
-    background-color: rgb(77, 77, 77);
-    overflow-x: hidden;
-}
-
+/* Scrollbar styles */
 ::-webkit-scrollbar {
     width: 12px; 
     height: 12px; 
@@ -56,20 +122,27 @@ body{
     border-radius: 10px; 
 }
 
-#footer {
-    background-color: rgba(22, 21, 21, 0.275);
-    position: absolute;
-    bottom: 0;
-    width: 100vw; /* or width: 100%; */
-    height: 2.4rem;
-    padding: 0;
-    margin: 0 -0.5rem; /* Adjust this value based on the body margin */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#SideImage {
+    position: fixed; 
+    top: 0; 
+    left: 75rem;
+    height: 50rem; 
+    z-index: 3;
 }
 
-#footer div p{
-    text-decoration: white;
-    color: white;
+#desc{
+    position: fixed;
+    width: 30rem;
+    left: 53rem;
+    top: 10rem;
+    border-bottom: solid;
+    transition: opacity 0.4s ease;
+}
+
+#desc p {
+    font-size: 1.5rem;
+}
+
+#desc h1 {
+    font-size: 3rem;
 }
