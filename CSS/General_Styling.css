@@ -1,6 +1,7 @@
 body{
     font-family: 'Poppins', sans-serif;
     background-color: rgb(253, 248, 248);
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -13,7 +14,24 @@ body{
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #000000, #ff1e1e); 
+    background: linear-gradient(to bottom, #000000, #0b0b0b); 
     border-radius: 10px; 
 }
 
+#footer {
+    background-color: rgba(22, 21, 21, 0.275);
+    position: absolute;
+    bottom: 0;
+    width: 100vw; /* or width: 100%; */
+    height: 2.4rem;
+    padding: 0;
+    margin: 0 -0.5rem; /* Adjust this value based on the body margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer div p{
+    text-decoration: white;
+    color: white;
+}

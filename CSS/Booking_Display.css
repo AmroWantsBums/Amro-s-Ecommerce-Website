@@ -1,0 +1,13 @@
+#bookingForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: min-content;
+}
+
+#bookingForm div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

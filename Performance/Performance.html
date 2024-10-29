@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3 Race Finishing Positions</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="../CSS/Performance_Display.css">
+    <script type="module"> import { loadNavbar } from "../JavaScript/Navigation_Bar.js"
+        loadNavbar("Performances")
+    </script>
+    <link rel="stylesheet" href="../CSS/NavigationBar_Display.css">
+    <link rel="stylesheet" href="../CSS/General_Styling.css">
+</head>
+<body>
+       
+    <header>
+        <nav id="navBar">
+
+        </nav>
+    </header>
+
+    <!-- Loading and data container -->
+    <div id="loading">Loading<span id="dots"></span></div>
+    <div id="dataContainer"></div>
+
+    <!-- Container for the visualization -->
+    <div id="chart"></div>
+    <input type="range" id="slider" min="0" max="124" step="1" value="0" />
+    <script src="../JavaScript/App3.js"></script>
+    
+    <div id="backgroundGradient"></div>
+    <img src="../Performance/Images/Charles Leclerc.png" alt="" id="CLimage">
+
+    <footer id="footer">
+        <div>
+            <p>
+                2024 Amro Ahmed
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

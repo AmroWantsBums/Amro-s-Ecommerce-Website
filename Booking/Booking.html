@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module"> import { loadNavbar } from "../JavaScript/Navigation_Bar.js"
+        loadNavbar("Preview")
+    </script>    
+    <link rel="stylesheet" href="../CSS/NavigationBar_Display.css">
+    <link rel="stylesheet" href="../CSS/General_Styling.css">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+    <script src="../JavaScript/Booking_Page.js" defer></script>
+    <link rel="stylesheet" href="../CSS/Booking_Display.css">
+</head>
+<body>
+    <header>
+        <nav id="navBar">
+
+        </nav>
+    </header>
+
+    <h1>Book a test drive</h1>
+    <form id="bookingForm">
+        <div>
+            <label for="Name">Name</label>
+            <input type="text" name="Name" placeholder="Name">
+        </div>
+        <div>
+            <label for="Email">Email</label>
+            <input type="text" name="Email" placeholder="Email">
+        </div>
+        <div>
+            <label for="phoneNumber">Phone number</label>
+            <input type="text" name="phoneNumber" placeholder="Phone Number">
+        </div>
+        <div>
+            <label for="date">Choose a date</label>
+            <input type="date" name="date" id="dateInput"> 
+        </div>
+        <button type="submit">Confirm booking</button>
+    </form>
+
+    <div class="message" id="message"></div>
+
+</body>
+</html>

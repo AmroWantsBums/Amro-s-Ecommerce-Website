@@ -45,3 +45,15 @@ video {
     height: 100%; /* Stretch the video to full height */
     object-fit: cover; /* Cover the entire area */
 }
+
+#skipButton {
+    position: absolute; /* Position it over the video */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    padding: 10px 20px; /* Padding */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size */
+}

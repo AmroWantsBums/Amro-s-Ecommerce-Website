@@ -1,10 +1,12 @@
 // Array to hold navigation page details with names and links
 const navPages = [
+    {name: "Home" , href: '/Amro-s-Ecommerce-Website/Home/Home.html'},
     {name: "Gallery" , href: '/Amro-s-Ecommerce-Website/Gallery/Gallery.html'},
     {name: "Catalogue", href: '/Amro-s-Ecommerce-Website/Catalogue/Catalogue.html'},
     {name: "Essay", href: '/Amro-s-Ecommerce-Website/Course Work/Essay.html'},
     {name: "About Me", href: '/Amro-s-Ecommerce-Website/Course Work/About_Me.html'},
-    {name: "Design", href: '/Amro-s-Ecommerce-Website/Course Work/Web_Design.html'}
+    {name: "Design", href: '/Amro-s-Ecommerce-Website/Course Work/Web_Design.html'},
+    {name: "Performances", href: '/Amro-s-Ecommerce-Website/Performance/Performance.html'}
 ];
 
 // Function to load the navbar based on the current page name
@@ -32,4 +34,14 @@ export function loadNavbar(CurrentPageName){
         ul.appendChild(li); // Append the list item to the unordered list        
     }
     nav.appendChild(ul); // Finally, append the ul to the nav element
+
+     // Create a logo element
+     const logo = document.createElement("img");
+     logo.src = "../Home/Images/Ferrari Logo.png"; // Set the path to your logo image
+     logo.alt = "Logo"; // Set an alt attribute for accessibility
+     logo.classList.add("navLogo"); // Add a class for styling
+ 
+     // Append the logo to the nav
+     nav.appendChild(ul);
+     nav.appendChild(logo); 
 }

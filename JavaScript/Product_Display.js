@@ -6,7 +6,10 @@ let carNames = [];
 let carPrices = [];
 let carFetchLinks = []; // Array to store fetch links for future use
 
+// Uncomment the fetch logic and comment out the hardcoded data when ready
+
 // Fetch car data from the API
+/*
 fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
     .then((response) => response.json()) // Parse the response as JSON
     .then(data => {
@@ -36,6 +39,15 @@ fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
         createProducts(); // Call function to create product elements
         localStorage.setItem('carFetchLinks', JSON.stringify(carFetchLinks)); // Save fetch links to local storage
     });
+*/
+
+// Hardcoded data for testing
+carNames = ['348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4']; // Example car names
+carPrices = ['$20,000', '$25,000', '$30,000']; // Example car prices
+carFetchLinks = ['https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/10624/anos/32000-1', 'https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/10624/anos/2024-1', 'https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/10624/anos/2023-1']; // Example fetch links
+
+// Call the function to create product elements
+createProducts();
 
 // Function to create product elements and display them
 function createProducts() {

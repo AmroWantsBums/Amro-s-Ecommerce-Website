@@ -10,10 +10,6 @@
     position: relative;
 }
 
-body {
-    background-color: rgb(253, 248, 248);
-}
-
 /* Media query for responsiveness */
 @media (max-width: 1100px) {
     #container {
@@ -29,7 +25,7 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    background-color: rgba(171, 165, 165, 0.099);
+    background-color: rgba(234, 227, 227, 0.952);
 }
 
 .productImage {
@@ -38,4 +34,42 @@ body {
     max-width: 180px; /* Limit maximum width */
     max-height: 120px; /* Limit maximum height */
     border-radius: 18px;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(77, 77, 77);
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 12px; 
+    height: 12px; 
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #000000, #0b0b0b); 
+    border-radius: 10px; 
+}
+
+#footer {
+    background-color: rgba(22, 21, 21, 0.275);
+    position: absolute;
+    bottom: 0;
+    width: 100vw; /* or width: 100%; */
+    height: 2.4rem;
+    padding: 0;
+    margin: 0 -0.5rem; /* Adjust this value based on the body margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer div p{
+    text-decoration: white;
+    color: white;
 }

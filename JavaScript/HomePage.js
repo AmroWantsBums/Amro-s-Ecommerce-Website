@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const backgroundVideo = document.getElementById('backgroundVideo'); // Get the background video
     const audio = document.getElementById('engineStartupAudio'); // Get the engine startup audio
     const backgroundAudio = document.getElementById('backgroundAudio'); // Get the background audio
+    const skipButton = document.getElementById('skipButton');
 
 
     // Add a click event to the enter button
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             videoContainer.style.display = 'block';
             backgroundVideo.play();
+            skipButton.style.display = 'block';
         }, 3000);
 
         // After 8.2 seconds, play the engine startup audio
@@ -52,9 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 8200)
 
 
+        skipButton.addEventListener('click', () => {
+            backgroundVideo.pause(); // Pause the video
+            skipButton.style.display = 'none'; // Hide the skip button
+            window.location.href = `./Home/Home.html`; // Redirect to gallery page
+        });
+
         // When the background video ends, redirect to the gallery page
         backgroundVideo.addEventListener('ended', () => {
-            window.location.href = `./Gallery/Gallery.html`; // Change to gallery page
+            window.location.href = `./Home/Home.html`; // Change to gallery page
         });
     });
 });

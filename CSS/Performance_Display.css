@@ -1,0 +1,48 @@
+#slider {
+    width: 33rem;
+    position: relative;
+    left: 3rem;
+    top: 31rem;
+    accent-color: red;
+    z-index: 1000;
+    color: aqua;
+}
+
+#CLimage {
+    position: absolute;
+    left: 29rem;
+    top: 2rem;
+    width: 35rem;
+}
+
+body {
+    overflow: hidden;
+}
+
+#backgroundGradient{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+        112deg,
+        rgba(31, 3, 8, 0.9) 0%,
+        rgba(188, 183, 184, 0.9) 50%,
+        rgba(191, 103, 103, 0.9) 50%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    z-index: -1;
+}
+
+#chart {
+    position: absolute;
+    left: 2rem;
+    top: 9rem;
+}
+
+#dataContainer {
+    position: relative;
+    top: 2rem;
+    left: 2.9rem;
+}
