@@ -1,28 +1,23 @@
 #tooltip {
-    width: 50rem; /* Tooltip area */
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: rgba(255, 255, 255, 0.9);
+    width: 34rem; /* Tooltip area */
     position: absolute; /* Use absolute positioning */
     top: 6rem;
-    left: 48rem;
-    transition: opacity 0.2s ease; /* Transition for opacity */
+    left: 3.4rem;
+    transition: opacity 1.5s ease; /* Transition for opacity */
     opacity: 0; /* Start with zero opacity */
-    display: none; /* Initially hidden */
+    display: flex;/* Initially hidden */
     overflow: hidden;
 }
 
-#tooltip.visible {
-    display: block; /* Show when visible */
-}
 
-#tooltipImage{
-    width: 40rem;
+.tooltipImage{
+    width: 32rem;
     height: auto;
+    border-radius: 20px;
 }
 
 body{
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 @media (max-width: 1100px) {
@@ -46,5 +41,119 @@ body{
 
 #wordMap svg{
     margin-top: 20px;
+    border-radius: 20px;
     border: 2px solid black;
+}
+
+#mainPanel {
+    margin-top: 2rem;
+    width: 50rem;
+    border-right: solid 2px;
+    transition: opacity 0.5s ease;
+}
+
+#LeftPanelImage {
+    width: 25rem;
+    border-radius: 20px;
+}
+
+#mainPanel h1 {
+    position: absolute;
+    top: 4rem;
+    left: 17.5rem;
+    font-size: 3rem;
+}
+
+#span1{
+    color: rgb(247, 247, 247);
+}
+
+#span2{
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+}
+
+#mainPanel div {
+    position: absolute;
+    top: 10.5rem;
+    left: 26.5rem;
+    font-size: 1.1rem;
+    width: 20rem;
+}
+
+#secondaryPanel{
+    background-color: rgba(88, 87, 87, 0.028);
+    width: 40rem;
+    height: 37rem;
+    position: fixed;
+    top: 5.9rem;
+    left: 53rem;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tooltipPlaceholder{
+    background-color: rgb(0, 0, 0);
+    width: 7rem;
+    height: 7rem;
+    border-radius: 80px;
+    color: white;
+    display: flex;          
+    justify-content: center;  
+    align-items: center; 
+    position: absolute; /* Make it absolute */
+    transition: transform 0.5s ease;
+}
+
+.moving-circle {
+    position: absolute;
+    width: 60px; /* Set to double the radius */
+    height: 60px; /* Set to double the radius */
+    border-radius: 50%;
+    background-color: rgb(255, 0, 0); /* Color for the moving circle */
+    pointer-events: none; /* Prevents mouse events */
+}
+
+
+.ResetButton {
+    width: 6rem;
+    height: 2rem;
+    border-radius: 20px;
+    border: none;
+    position: fixed;
+    overflow: hidden;
+    background-color: #919191; /* Default background */
+    color: black; /* Default text color */
+    transition: color 0.5s ease; /* Smooth color transition */
+}
+
+.ResetButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff0000, #140e0e);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.ResetButton:hover::before {
+    transform: translateX(0);
+}
+
+.ResetButton:hover {
+    color: rgb(226, 224, 224); /* Change text color on hover */
+    cursor: pointer;
+    background-color: #919191; /* Keep solid background on hover */
+    z-index: 1; /* Ensure button remains on top */
+}
+
+.ResetButton span {
+    position: relative; /* Position text relative to button */
+    z-index: 1; /* Keep text above the gradient */
 }
