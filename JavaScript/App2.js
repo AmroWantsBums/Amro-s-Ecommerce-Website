@@ -19,15 +19,10 @@ let svg = d3
 
 let fixedRadius = 30;
 const redShades = [
-    'rgb(255, 0, 0)',     
-    'rgb(255, 51, 51)',   
-    'rgb(255, 102, 102)',  
-    'rgb(255, 153, 153)',  
-    'rgb(255, 204, 204)',  
-    'rgb(255, 230, 230)'   
+    'rgb(0, 0, 0)'  
 ];
 
-/*  
+/* 
 The randomRedShade function selects a random color from the redShades array.
 */
 function randomRedShade() {
@@ -187,6 +182,7 @@ function CreateBubbles(data) {
         .append("text")
         .attr("dy", ".35em")
         .attr("text-anchor", "middle")
+        .attr("fill", "white")
         .style("font-size", `${fixedRadius / 4}px`)
         .style("pointer-events", "none")
         .text(d => {

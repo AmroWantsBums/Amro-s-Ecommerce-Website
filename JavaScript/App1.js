@@ -27,6 +27,7 @@ function CreateDataVisualization(carFetchLink) {
     fetch(carFetchLink)
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             const fetchPromises = data.map(car => {
                 const modelFetchLink = `${carFetchLink}/${car.codigo}`;
                 return fetch(modelFetchLink)

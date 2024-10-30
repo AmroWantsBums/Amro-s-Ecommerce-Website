@@ -112,7 +112,7 @@ body{
     width: 60px; /* Set to double the radius */
     height: 60px; /* Set to double the radius */
     border-radius: 50%;
-    background-color: rgb(255, 0, 0); /* Color for the moving circle */
+    background-color: rgb(0, 0, 0); /* Color for the moving circle */
     pointer-events: none; /* Prevents mouse events */
 }
 
