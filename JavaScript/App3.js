@@ -60,47 +60,92 @@ fetch('https://ergast.com/api/f1/drivers/leclerc/constructors/ferrari/results.js
         svg.append("g")
             .call(d3.axisLeft(yScale));
 
-        // // Create the line generator
-        // const line = d3.line()
-        //     .x(d => xScale(d.sequentialRound))
-        //     .y(d => yScale(d.position));
-
-        // // Draw the line for race positions
-        // svg.append("path")
-        //     .datum(races)
-        //     .attr("fill", "none")
-        //     .attr("stroke", "steelblue")
-        //     .attr("stroke-width", 1.5)
-        //     .attr("d", line);
-
         // Add circles for each race point
-        svg.selectAll("circle")
+        const circles = svg.selectAll("circle")
             .data(races)
             .enter()
             .append("circle")
             .attr("cx", d => xScale(d.sequentialRound))
             .attr("cy", d => yScale(d.position))
             .attr("r", 4)
-            .attr("fill", "red");
+            .attr("fill", "black");
 
-        // Update function to highlight selected race round
-        function update(round) {
-            const selectedRace = races.find(d => d.sequentialRound === round);
-            svg.selectAll("circle")
-                .attr("fill", d => d === selectedRace ? "black" : "red");
+        // Filter function
+        let filteredRaces = races; // Start with all races
 
-            if (selectedRace) {
-                document.getElementById('dataContainer').innerText = 
-                    `Round ${selectedRace.round} (${selectedRace.displayRound}): ${selectedRace.raceName} on ${selectedRace.date} - Position: ${selectedRace.position}`;
-            }
-        }
+// Filter function
+function filterData(filter) {
+    switch (filter) {
+        case 'first':
+            filteredRaces = races.filter(d => d.position === 1);
+            break;
+        case 'podium':
+            filteredRaces = races.filter(d => d.position <= 3);
+            break;
+        case 'topFive':
+            filteredRaces = races.filter(d => d.position <= 5);
+            break;
+        default:
+            filteredRaces = races; // Show all
+    }
 
-        // Interactive slider to select the round
-        const slider = document.getElementById("slider");
-        slider.max = races.length;
-        slider.addEventListener("input", event => {
-            const round = +event.target.value;
-            update(round);
-        });
+    // Bind the filtered data to circles
+    const circles = svg.selectAll("circle")
+        .data(filteredRaces, d => d.sequentialRound);
+
+    // Update existing circles with a transition
+    circles.transition()
+        .duration(500)
+        .attr("cx", d => xScale(d.sequentialRound))
+        .attr("cy", d => yScale(d.position))
+        .attr("fill", "black")
+        .attr("opacity", 1); // Ensure existing circles are fully opaque
+
+    // Enter new circles
+    const enterCircles = circles.enter()
+        .append("circle")
+        .attr("cx", d => xScale(d.sequentialRound))
+        .attr("cy", d => yScale(d.position))
+        .attr("r", 4)
+        .attr("fill", "black")
+        .attr("opacity", 0)  // Start invisible
+        .transition()  // Start transition for new circles
+        .duration(500) // Duration of the fade
+        .attr("opacity", 1); // Fade to fully visible
+
+    // Remove circles that are no longer needed with a transition
+    circles.exit()
+        .transition() // Transition for exiting circles
+        .duration(500) // Duration of the fade
+        .attr("opacity", 0) // Fade out
+        .remove(); // Remove from DOM after fade out
+}
+
+// Update function to highlight selected race round
+function update(round) {
+    const selectedRace = filteredRaces.find(d => d.sequentialRound === round);
+    svg.selectAll("circle").attr("fill", d => d === selectedRace ? "red" : "black");
+
+    if (selectedRace) {
+        document.getElementById('nameTooltip').innerText = `${selectedRace.raceName}`;
+        document.getElementById('timeTooltip').innerText = `${selectedRace.displayRound}`;
+        document.getElementById('positionTooltip').innerText = `Position: ${selectedRace.position}`;
+    }
+}
+
+// Set up filter buttons
+document.getElementById('first-place').addEventListener('click', () => filterData('first'));
+document.getElementById('podium').addEventListener('click', () => filterData('podium'));
+document.getElementById('top-five').addEventListener('click', () => filterData('topFive'));
+document.getElementById('all').addEventListener('click', () => filterData('all'));
+
+// Interactive slider to select the round
+const slider = document.getElementById("slider");
+slider.max = races.length;
+slider.addEventListener("input", event => {
+    const round = +event.target.value;
+    update(round);
+});
+
     })
     .catch(error => console.error('Error fetching data:', error));

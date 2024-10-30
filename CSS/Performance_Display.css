@@ -3,9 +3,8 @@
     position: relative;
     left: 3rem;
     top: 31rem;
-    accent-color: red;
+    accent-color: rgb(0, 0, 0);
     z-index: 1000;
-    color: aqua;
 }
 
 #CLimage {
@@ -16,7 +15,7 @@
 }
 
 body {
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 #backgroundGradient{
@@ -27,10 +26,10 @@ body {
     width: 100%;
     background: linear-gradient(
         112deg,
-        rgba(31, 3, 8, 0.9) 0%,
-        rgba(188, 183, 184, 0.9) 50%,
-        rgba(191, 103, 103, 0.9) 50%,
-        rgba(0, 0, 0, 0.9) 100%
+        rgba(241, 241, 241, 0.9) 0%,
+        rgba(131, 130, 130, 0.9) 50%,
+        rgba(199, 191, 191, 0.9) 50%,
+        rgba(255, 252, 252, 0.9) 100%
     );
     z-index: -1;
 }
@@ -38,11 +37,124 @@ body {
 #chart {
     position: absolute;
     left: 2rem;
-    top: 9rem;
+    top: 4rem;
 }
 
 #dataContainer {
+    position: absolute;
+    top: 8rem;
+    left: 7.9rem;
+    color: white;
+}
+
+#rightPanel {
+    position: absolute;
+    left: 56rem;
+    width: 35rem;
+}
+
+#rightPanel div{
+
+    padding-bottom: 2rem;
+    border-bottom: solid;
+}
+
+#heading1{
+    font-size: 3rem;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+#heading2{
+    font-size: 3rem;
+    padding: 0;
+    margin-bottom: 1rem;
     position: relative;
-    top: 2rem;
-    left: 2.9rem;
+    top: rem;
+}
+
+#leftPanel {
+    position: fixed;
+    top: 5rem;
+    height: 35rem;
+    width: 40rem;
+}
+
+#f1image {
+    width: 24rem;
+    position: absolute;
+    top: 15rem;
+    left: 11rem;
+    border-radius: 2rem;
+}
+
+#heading2 span{
+    color: rgba(255, 252, 252, 0.9);
+}
+
+#subPanel{
+    position: relative;
+    top: 14rem;
+}
+
+
+
+.Buttons {
+    width: 6rem;
+    height: 2rem;
+    border-radius: 2rem;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    background-color: #939393; /* Default background */
+    color: black; /* Default text color */
+    transition: color 0.5s ease; /* Smooth color transition */
+}
+
+.Buttons::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ffffff, #c5bdbd);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.Buttons:hover::before {
+    transform: translateX(0);
+}
+
+.Buttons:hover {
+    color: rgb(227, 64, 64); /* Change text color on hover */
+    cursor: pointer;
+    background-color: #919191; /* Keep solid background on hover */
+    z-index: 1; /* Ensure button remains on top */
+}
+
+.Buttons span {
+    position: relative; /* Position text relative to button */
+    z-index: 1; /* Keep text above the gradient */
+}
+
+#filterButtons {
+    position: relative;
+    left: 10rem;
+    top: 1rem;
+}
+
+#positionTooltip{
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+#nameTooltip{
+    font-size: 3rem;
+}
+
+#timeTooltip{
+    font-size: 1rem;
 }

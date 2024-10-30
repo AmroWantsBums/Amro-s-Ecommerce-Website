@@ -27,7 +27,7 @@ const redShades = [
     'rgb(255, 230, 230)'   
 ];
 
-/* 
+/*  
 The randomRedShade function selects a random color from the redShades array.
 */
 function randomRedShade() {

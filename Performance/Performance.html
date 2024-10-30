@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +13,9 @@
     <link rel="stylesheet" href="../CSS/NavigationBar_Display.css">
     <link rel="stylesheet" href="../CSS/General_Styling.css">
 </head>
+
 <body>
-       
+
     <header>
         <nav id="navBar">
 
@@ -21,23 +23,68 @@
     </header>
 
     <!-- Loading and data container -->
-    <div id="loading">Loading<span id="dots"></span></div>
-    <div id="dataContainer"></div>
+    <section id="leftPanel">
 
-    <!-- Container for the visualization -->
-    <div id="chart"></div>
-    <input type="range" id="slider" min="0" max="124" step="1" value="0" />
-    <script src="../JavaScript/App3.js"></script>
-    
-    <div id="backgroundGradient"></div>
-    <img src="../Performance/Images/Charles Leclerc.png" alt="" id="CLimage">
-
-    <footer id="footer">
-        <div>
-            <p>
-                2024 Amro Ahmed
-            </p>
+        <div id="loading">Loading<span id="dots"></span></div>
+        <div id="dataContainer">
+            <div id="positionTooltip"></div>
+            <div id="nameTooltip"></div>
+            <div id="timeTooltip"></div>
         </div>
-    </footer>
+
+        <!-- Container for the visualization -->
+        <div id="chart"></div>
+        <div id="filterButtons">
+            <button id="first-place" class="Buttons"><span>First Place Finishes</span></button>
+            <button id="podium" class="Buttons"><span>Podium Finishes</span></button>
+            <button id="top-five" class="Buttons"><span>Top Five Finishes</span></button>
+            <button id="all" class="Buttons"><span>Show All Races</span></button>
+        </div>
+        <input type="range" id="slider" min="0" max="124" step="1" value="0" />
+
+        <div id="backgroundGradient"></div>
+    </section>
+
+    <!-- <img src="../Performance/Images/Charles Leclerc.png" alt="" id="CLimage"> -->
+
+
+    <section id="rightPanel">
+        <h1 id="heading1">Je'sue Temai</h1>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum deleniti est quibusdam perspiciatis
+            voluptatum
+            dignissimos voluptas quis consequuntur, laborum, adipisci explicabo ipsum, incidunt cum rerum quos
+            recusandae!
+            Laudantium, molestiae fuga.
+        </div>
+
+        <img src="./Images/f1.jpg" alt="" id="f1image">
+
+        <section id="subPanel">
+
+            <h1 id="heading2">Charles <span>Leclerc</span></h1>
+
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum facere, labore vel, officiis ex expedita nihil
+                magni vitae illum, praesentium iste sed odio laudantium voluptas beatae rerum quisquam quae? Expedita.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit maiores id magni nostrum nulla, hic,
+                assumenda deserunt harum dolor iste consequuntur odio iure quas suscipit, quis asperiores reprehenderit
+                perspiciatis quam!
+            </p>
+
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum facere, labore vel, officiis ex expedita nihil
+                magni vitae illum, praesentium iste sed odio laudantium voluptas beatae rerum quisquam quae? Expedita.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit maiores id magni nostrum nulla, hic,
+                assumenda deserunt harum dolor iste consequuntur odio iure quas suscipit, quis asperiores reprehenderit
+                perspiciatis quam!
+            </p>
+        </section>
+    </section>
+
+
+
+    <script src="../JavaScript/App3.js"></script>
 </body>
+
 </html>
