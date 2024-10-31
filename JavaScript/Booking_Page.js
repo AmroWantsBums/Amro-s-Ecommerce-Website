@@ -35,5 +35,6 @@ document.getElementById('bookingForm').addEventListener('submit', function(event
     }
 
     // Display success message
+    document.getElementById('message').style.opacity = "1";
     document.getElementById('message').innerText = `See you on ${selectedDate.toLocaleDateString()}`;
 });

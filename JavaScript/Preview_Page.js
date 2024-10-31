@@ -12,12 +12,10 @@ function getQueryParams() {
 const carDetailse = getQueryParams(); // Fetch the car details from the URL
 
 // Select the HTML elements where car details will be displayed
-let carImage = document.querySelector("#carImage"); // Get the image element
 let carName = document.querySelector("#carName"); // Get the name element
 let carDesc = document.querySelector("#carDesc"); // Get the description element
 
 // Set the selected elements with the car details from the URL
-carImage.src = carDetailse.image; // Set the image source
 carName.innerText = carDetailse.name; // Set the name text
 
 // Array of descriptions
@@ -39,3 +37,9 @@ const randomDescription = descriptions[randomIndex];
 
 // Insert the selected description into the carDesc element
 carDesc.innerHTML = randomDescription;
+
+const testDriveButton = document.querySelector("#testDriveButton");
+
+testDriveButton.addEventListener("click", function(){
+    window.location.href = "../Booking/Booking.html";
+})
