@@ -12,7 +12,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/General_Styling.css">    
+    <link rel="stylesheet" href="../CSS/General_Styling.css">
+    <link rel="stylesheet" href="../CSS/Essay_Styling.css">
+    <script src="../JavaScript/Essay_Interactivity.js" defer></script>
 </head>
 
 <body>
@@ -23,193 +25,278 @@
         </nav>
     </header>
 
-    <section>
-        <h3>Essay</h3>
+    <aside>
+        <section id="content">
+            <h1 id="heading"><span>Written</span> Works</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quia blanditiis perferendis quasi, odio
+                molestiae sit minus quos consectetur delectus sunt quo accusantium soluta vel dolores temporibus nihil
+                cupiditate. Veniam?
+            </p>
+        </section>
+        
+        <img src="./Essay Images/pexels-autorecords-10199222.jpg" alt="Flavour image of ferrari car" id="ferCar">
+    </aside>
 
-        <p>Data visualization is a critical tool in journalism, enabling the clear communication of complex information
-            to a wide audience. However, the effectiveness of these visualizations can vary greatly, depending on
-            design, execution, and the integration of narrative elements. This essay critically analyses two data-driven
-            journalism pieces: The New York Times’ "How The Virus Got Out" and Al Jazeera's "Map: Tracking the Delta
-            Variant." Even though both projects are focused on transmitting messages about the spread of a deadly virus,
-            The New York Times manages to develop an attractive and informative visualisation whereas its counterpart
-            from Al Jazeera fails because it lacks interactivity and has poor design.
-        </p>
+    <main>
+        <div id="buttonsContainer">
+            <button id="essayButtonOne" class="Buttons"><span>Essay 1</span></button>
+            <button id="essayButtonTwo" class="Buttons"><span>Essay 2</span></button>
+        </div>
+        <section id="essayOneContainer">
+            <h3>This is the name of the first essay</h3>
 
-        <h3>Project Overview</h3>
+            <p>Data visualization is a critical tool in journalism, enabling the clear communication of complex
+                information
+                to a wide audience. However, the effectiveness of these visualizations can vary greatly, depending on
+                design, execution, and the integration of narrative elements. This essay critically analyses two
+                data-driven
+                journalism pieces: The New York Times’ "How The Virus Got Out" and Al Jazeera's "Map: Tracking the Delta
+                Variant." Even though both projects are focused on transmitting messages about the spread of a deadly
+                virus,
+                The New York Times manages to develop an attractive and informative visualisation whereas its
+                counterpart
+                from Al Jazeera fails because it lacks interactivity and has poor design.
+            </p>
 
-        <p>
-            In March 2020, The New York Times published a thorough visualization called “How The Virus Got Out” that
-            illustrates the spread of COVID-19 from Wuhan, China, to the world at large. It utilizes maps, timelines and
-            animations as a combination to depict how fast the virus spread globally.
+            <h3>Project Overview</h3>
 
-            On the other hand, “Map: Tracking the Delta Variant” by Al Jazeera seeks to show how the Delta Variant has
-            spread in different countries in July 2021. This is a static map with categories based on colour which shows
-            the percentage share of the Delta variant across various regions.
-        </p>
+            <p>
+                In March 2020, The New York Times published a thorough visualization called “How The Virus Got Out” that
+                illustrates the spread of COVID-19 from Wuhan, China, to the world at large. It utilizes maps, timelines
+                and
+                animations as a combination to depict how fast the virus spread globally.
 
-        <h3>Data Visualization Techniques</h3>
+                On the other hand, “Map: Tracking the Delta Variant” by Al Jazeera seeks to show how the Delta Variant
+                has
+                spread in different countries in July 2021. This is a static map with categories based on colour which
+                shows
+                the percentage share of the Delta variant across various regions.
+            </p>
 
-        <p>
-            The New York Times employs a combination of animated maps, interactive timelines, and charts to vividly
-            illustrate the spread of COVID-19. The animated maps are particularly impactful, as they show the
-            progression of the virus in real-time, allowing users to visualize the dynamic nature of the pandemic. This
-            technique effectively communicates not just the scale, but the speed at which the virus travelled across the
-            globe. Users can interact with the timeline to focus on specific dates or regions, providing a customized
-            experience that enhances understanding.
+            <h3>Data Visualization Techniques</h3>
 
-            The visualizations seamlessly integrate with the narrative elements of the piece, as each map and chart is
-            paired with explanatory text that guides the reader through complex data, making the information accessible
-            to a wide audience. As Tufte (2001) eloquently states, "Graphical excellence is that which gives to the
-            viewer the greatest number of ideas in the shortest time with the least ink in the smallest space" (p. 51).
-            This principle underscores the effectiveness of the visualizations in conveying meaningful insights
-            efficiently.
-            Al Jazeera’s visualization, on the other hand, is a static world map with countries color-coded to indicate
-            the prevalence of the Delta variant. While the map provides a snapshot of the global spread, it lacks depth
-            and interactivity. The static nature of the map limits the user’s ability to explore the data in more
-            detail, making it less effective in communicating the complexities of the Delta variant’s transmission.
-            Additionally, the colour scheme, while striking, may not be the most effective in conveying the severity or
-            scale of the variant's spread.
-        </p>
+            <p>
+                The New York Times employs a combination of animated maps, interactive timelines, and charts to vividly
+                illustrate the spread of COVID-19. The animated maps are particularly impactful, as they show the
+                progression of the virus in real-time, allowing users to visualize the dynamic nature of the pandemic.
+                This
+                technique effectively communicates not just the scale, but the speed at which the virus travelled across
+                the
+                globe. Users can interact with the timeline to focus on specific dates or regions, providing a
+                customized
+                experience that enhances understanding.
 
-        <h3>Interactivity and User Engagement</h3>
+                The visualizations seamlessly integrate with the narrative elements of the piece, as each map and chart
+                is
+                paired with explanatory text that guides the reader through complex data, making the information
+                accessible
+                to a wide audience. As Tufte (2001) eloquently states, "Graphical excellence is that which gives to the
+                viewer the greatest number of ideas in the shortest time with the least ink in the smallest space" (p.
+                51).
+                This principle underscores the effectiveness of the visualizations in conveying meaningful insights
+                efficiently.
+                Al Jazeera’s visualization, on the other hand, is a static world map with countries color-coded to
+                indicate
+                the prevalence of the Delta variant. While the map provides a snapshot of the global spread, it lacks
+                depth
+                and interactivity. The static nature of the map limits the user’s ability to explore the data in more
+                detail, making it less effective in communicating the complexities of the Delta variant’s transmission.
+                Additionally, the colour scheme, while striking, may not be the most effective in conveying the severity
+                or
+                scale of the variant's spread.
+            </p>
 
-        <p>
-            Interactivity is a key element that enhances user engagement and understanding in data visualizations. In
-            The New York Times’ project, interactivity is a central feature. Users can interact with the map and
-            timeline, which allows them to explore how the virus spread to different regions over time. This
-            interactivity not only keeps users engaged but also helps them to better understand the data, as they can
-            see the unfolding story at their own pace.
+            <h3>Interactivity and User Engagement</h3>
 
-            In contrast, Al Jazeera's map offers no interactivity. It is a static image that presents data in a
-            one-dimensional format. Without the ability to explore the data further, users are left with a surface-level
-            understanding of the Delta variant's spread. This lack of interactivity significantly detracts from the user
-            experience, as it does not allow for deeper engagement with the data.
-        </p>
+            <p>
+                Interactivity is a key element that enhances user engagement and understanding in data visualizations.
+                In
+                The New York Times’ project, interactivity is a central feature. Users can interact with the map and
+                timeline, which allows them to explore how the virus spread to different regions over time. This
+                interactivity not only keeps users engaged but also helps them to better understand the data, as they
+                can
+                see the unfolding story at their own pace.
 
-        <h3>UI/UX Design Principles</h3>
+                In contrast, Al Jazeera's map offers no interactivity. It is a static image that presents data in a
+                one-dimensional format. Without the ability to explore the data further, users are left with a
+                surface-level
+                understanding of the Delta variant's spread. This lack of interactivity significantly detracts from the
+                user
+                experience, as it does not allow for deeper engagement with the data.
+            </p>
 
-        <h4>The New York Times: Exemplary UI/UX Design</h4>
+            <h3>UI/UX Design Principles</h3>
 
-        <p>
-            The New York Times excels in applying UI/UX design principles to its COVID-19 visualization, creating a
-            seamless and intuitive user experience. The layout is clean and well-organized, ensuring that the visual
-            elements are not overwhelming despite the complexity of the data. The interface guides the user through the
-            information with minimal friction, using progressive disclosure techniques to reveal data layers as needed.
-            This approach keeps the interface uncluttered while still providing access to detailed information for those
-            who seek it.
+            <h4>The New York Times: Exemplary UI/UX Design</h4>
 
-            One of the standout features is the integration of interactive elements with narrative content. The New York
-            Times strategically places explanations and contextual information alongside the visualizations, creating a
-            guided experience that enhances comprehension. The navigation is intuitive, with clear labels and a logical
-            flow that encourages exploration. The design adheres to key UX principles such as consistency, where similar
-            visualizations use uniform colours and design elements, making it easier for users to interpret the data
-            quickly.
-        </p>
+            <p>
+                The New York Times excels in applying UI/UX design principles to its COVID-19 visualization, creating a
+                seamless and intuitive user experience. The layout is clean and well-organized, ensuring that the visual
+                elements are not overwhelming despite the complexity of the data. The interface guides the user through
+                the
+                information with minimal friction, using progressive disclosure techniques to reveal data layers as
+                needed.
+                This approach keeps the interface uncluttered while still providing access to detailed information for
+                those
+                who seek it.
 
-        <h4>Al Jazeera: Missed Opportunities in UI/UX Design</h4>
+                One of the standout features is the integration of interactive elements with narrative content. The New
+                York
+                Times strategically places explanations and contextual information alongside the visualizations,
+                creating a
+                guided experience that enhances comprehension. The navigation is intuitive, with clear labels and a
+                logical
+                flow that encourages exploration. The design adheres to key UX principles such as consistency, where
+                similar
+                visualizations use uniform colours and design elements, making it easier for users to interpret the data
+                quickly.
+            </p>
 
-        <p>
-            In contrast, Al Jazeera’s UI/UX design for the Delta variant map falls short in several areas. The static
-            nature of the map limits user engagement, as there are no interactive elements to explore or manipulate the
-            data. This lack of interactivity not only reduces engagement but also limits the user’s ability to derive
-            meaningful insights from the visualization. The map is essentially a one-way communication tool, offering
-            information without allowing the user to interact with or explore it further.
+            <h4>Al Jazeera: Missed Opportunities in UI/UX Design</h4>
 
-            The colour scheme, while visually striking, is not optimized for accessibility. For instance, users with
-            colour vision deficiencies may struggle to distinguish between the different shades used on the map, making
-            it difficult for them to interpret the data accurately. This oversight indicates a lack of consideration for
-            diverse user needs, which is a fundamental principle of good UX design.
+            <p>
+                In contrast, Al Jazeera’s UI/UX design for the Delta variant map falls short in several areas. The
+                static
+                nature of the map limits user engagement, as there are no interactive elements to explore or manipulate
+                the
+                data. This lack of interactivity not only reduces engagement but also limits the user’s ability to
+                derive
+                meaningful insights from the visualization. The map is essentially a one-way communication tool,
+                offering
+                information without allowing the user to interact with or explore it further.
 
-            The absence of guiding narrative elements significantly detracts from the design's effectiveness. Without
-            accompanying explanations or context, users may struggle to grasp the significance of the presented data.
-            The lack of progressive disclosure results in all information being presented at once, overwhelming the user
-            and hindering comprehension. Additionally, the static design and absence of interactive features diminish
-            engagement and informativeness, contrasting sharply with the dynamic, user-centred approach exemplified by
-            The New York Times. As Cairo (2013) notes, "Interactive visualizations allow users to explore data at their
-            own pace, uncovering insights that static images cannot provide" (p. 127). This highlights the importance of
-            interactivity in enhancing user experience and understanding.
-        </p>
+                The colour scheme, while visually striking, is not optimized for accessibility. For instance, users with
+                colour vision deficiencies may struggle to distinguish between the different shades used on the map,
+                making
+                it difficult for them to interpret the data accurately. This oversight indicates a lack of consideration
+                for
+                diverse user needs, which is a fundamental principle of good UX design.
 
-        <h3>Data-Driven Storytelling</h3>
+                The absence of guiding narrative elements significantly detracts from the design's effectiveness.
+                Without
+                accompanying explanations or context, users may struggle to grasp the significance of the presented
+                data.
+                The lack of progressive disclosure results in all information being presented at once, overwhelming the
+                user
+                and hindering comprehension. Additionally, the static design and absence of interactive features
+                diminish
+                engagement and informativeness, contrasting sharply with the dynamic, user-centred approach exemplified
+                by
+                The New York Times. As Cairo (2013) notes, "Interactive visualizations allow users to explore data at
+                their
+                own pace, uncovering insights that static images cannot provide" (p. 127). This highlights the
+                importance of
+                interactivity in enhancing user experience and understanding.
+            </p>
 
-        <p>
-            Effective data communication requires more than just presenting facts; as Knaflic (2015) notes, “A good
-            story grabs your attention and takes you on a journey, evoking an emotional response.” This highlights the
-            need for a narrative approach in data presentations. The New York Times effectively integrates data-driven
-            storytelling into its visualization, combining maps, timelines, and narrative elements to create a
-            compelling story about the spread of COVID-19. The visualization not only presents the data but also
-            contextualizes it within the broader story of the pandemic, making it more accessible and meaningful to the
-            audience.
+            <h3>Data-Driven Storytelling</h3>
 
-            Al Jazeera’s map, however, lacks a strong narrative component. The visualization presents the data in a
-            static format, without providing the context or storytelling needed to fully understand the significance of
-            the Delta variant’s spread. This absence of narrative reduces the impact of the visualization, as users are
-            presented with data but no clear understanding of what it means in the larger context of the pandemic.
-        </p>
+            <p>
+                Effective data communication requires more than just presenting facts; as Knaflic (2015) notes, “A good
+                story grabs your attention and takes you on a journey, evoking an emotional response.” This highlights
+                the
+                need for a narrative approach in data presentations. The New York Times effectively integrates
+                data-driven
+                storytelling into its visualization, combining maps, timelines, and narrative elements to create a
+                compelling story about the spread of COVID-19. The visualization not only presents the data but also
+                contextualizes it within the broader story of the pandemic, making it more accessible and meaningful to
+                the
+                audience.
 
-        <h3>Emotional Impact</h3>
+                Al Jazeera’s map, however, lacks a strong narrative component. The visualization presents the data in a
+                static format, without providing the context or storytelling needed to fully understand the significance
+                of
+                the Delta variant’s spread. This absence of narrative reduces the impact of the visualization, as users
+                are
+                presented with data but no clear understanding of what it means in the larger context of the pandemic.
+            </p>
 
-        <p>
-            The emotional connection fostered by storytelling is vital. Knaflic (2015) emphasizes that “stories unite an
-            idea with an emotion, arousing the audience’s attention and energy,” which can significantly enhance the
-            effectiveness of data presentations. The New York Times does this well by effectively using colour,
-            animation, and transitions to create a sense of urgency and importance around the spread of COVID-19. The
-            visualization’s design elements work together to convey the gravity of the situation, making it not only
-            informative but also emotionally resonant.
+            <h3>Emotional Impact</h3>
 
-            Al Jazeera’s map, while visually bold, does not have the same emotional impact. The static design and lack
-            of interactivity make it difficult for the visualization to convey the urgency or severity of the Delta
-            variant's spread. The map’s design is more focused on presenting data than on evoking an emotional response,
-            which may limit its effectiveness in communicating the seriousness of the situation.
-        </p>
+            <p>
+                The emotional connection fostered by storytelling is vital. Knaflic (2015) emphasizes that “stories
+                unite an
+                idea with an emotion, arousing the audience’s attention and energy,” which can significantly enhance the
+                effectiveness of data presentations. The New York Times does this well by effectively using colour,
+                animation, and transitions to create a sense of urgency and importance around the spread of COVID-19.
+                The
+                visualization’s design elements work together to convey the gravity of the situation, making it not only
+                informative but also emotionally resonant.
 
-        <h3>Lessons Learned</h3>
+                Al Jazeera’s map, while visually bold, does not have the same emotional impact. The static design and
+                lack
+                of interactivity make it difficult for the visualization to convey the urgency or severity of the Delta
+                variant's spread. The map’s design is more focused on presenting data than on evoking an emotional
+                response,
+                which may limit its effectiveness in communicating the seriousness of the situation.
+            </p>
 
-        <p>
-            This comparison highlights several important lessons for creating effective data visualizations. First,
-            interactivity is crucial for engaging users and helping them to explore and understand complex data. The New
-            York Times demonstrates how interactivity can enhance a visualization, making it more informative and
-            engaging. In contrast, the static nature of Al Jazeera’s map shows the limitations of non-interactive
-            visualizations, particularly when dealing with complex or evolving data.
+            <h3>Lessons Learned</h3>
 
-            Second, the integration of narrative elements can significantly enhance the effectiveness of a data
-            visualization. By contextualizing data within a broader story, visualizations can become more meaningful and
-            impactful, as seen in The New York Times project.
-            Finally, attention to UI/UX design principles is essential for ensuring that visualizations are both
-            accessible and informative. Poor design can undermine even the most important data, as evidenced by the
-            challenges in Al Jazeera’s map. As Knaflic puts it, "If it’s worth communicating, it’s worth spending the
-            time necessary to frame your data in a story" (Knaflic, 2015, p. 173).
-        </p>
+            <p>
+                This comparison highlights several important lessons for creating effective data visualizations. First,
+                interactivity is crucial for engaging users and helping them to explore and understand complex data. The
+                New
+                York Times demonstrates how interactivity can enhance a visualization, making it more informative and
+                engaging. In contrast, the static nature of Al Jazeera’s map shows the limitations of non-interactive
+                visualizations, particularly when dealing with complex or evolving data.
 
-        <p>
-            In conclusion, the comparison between The New York Times’ "How The Virus Got Out" and Al Jazeera’s "Map:
-            Tracking the Delta Variant" underscores the importance of effective data visualization in journalism. While
-            both projects aimed to communicate the spread of a deadly virus, only The New York Times succeeded in
-            creating a clear, engaging, and impactful visualization. Al Jazeera’s map, though visually striking, falls
-            short due to its lack of interactivity, poor design, and absence of narrative elements. By learning from
-            these examples, my future data visualization projects can be designed to not only inform but also engage and
-            resonate with their audience.
-        </p>
+                Second, the integration of narrative elements can significantly enhance the effectiveness of a data
+                visualization. By contextualizing data within a broader story, visualizations can become more meaningful
+                and
+                impactful, as seen in The New York Times project.
+                Finally, attention to UI/UX design principles is essential for ensuring that visualizations are both
+                accessible and informative. Poor design can undermine even the most important data, as evidenced by the
+                challenges in Al Jazeera’s map. As Knaflic puts it, "If it’s worth communicating, it’s worth spending
+                the
+                time necessary to frame your data in a story" (Knaflic, 2015, p. 173).
+            </p>
 
-        <h3>References</h3>
+            <p>
+                In conclusion, the comparison between The New York Times’ "How The Virus Got Out" and Al Jazeera’s "Map:
+                Tracking the Delta Variant" underscores the importance of effective data visualization in journalism.
+                While
+                both projects aimed to communicate the spread of a deadly virus, only The New York Times succeeded in
+                creating a clear, engaging, and impactful visualization. Al Jazeera’s map, though visually striking,
+                falls
+                short due to its lack of interactivity, poor design, and absence of narrative elements. By learning from
+                these examples, my future data visualization projects can be designed to not only inform but also engage
+                and
+                resonate with their audience.
+            </p>
 
-        <p>
-        <ul>
-            <li>
-                Knaflic, C. N. (2015). Storytelling with data: A data visualization guide for business professionals.
-                Hoboken, New Jersey: John Wiley & Sons, Inc.
-            </li>
-            <li>
-                Tufte, E. R. (2001). The visual display of quantitative information (2nd ed.). Cheshire, Connecticut:
-                Graphics Press.
-            </li>
-            <li>
-                Cairo, A. (2013). The functional art: An introduction to information graphics and visualization.
-                Berkeley, California: New Riders.
-            </li>
-        </ul>
-        </p>
-    </section>
+            <h3>References</h3>
+
+            <p>
+            <ul>
+                <li>
+                    Knaflic, C. N. (2015). Storytelling with data: A data visualization guide for business
+                    professionals.
+                    Hoboken, New Jersey: John Wiley & Sons, Inc.
+                </li>
+                <li>
+                    Tufte, E. R. (2001). The visual display of quantitative information (2nd ed.). Cheshire,
+                    Connecticut:
+                    Graphics Press.
+                </li>
+                <li>
+                    Cairo, A. (2013). The functional art: An introduction to information graphics and visualization.
+                    Berkeley, California: New Riders.
+                </li>
+            </ul>
+            </p>
+        </section>
+        <section id="essayTwoContainer">
+            <h3>This is the name of the second essay</h3>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet optio iure placeat reprehenderit
+                quidem, mollitia quos sunt velit ut vero excepturi, quaerat eligendi, odit dolores exercitationem
+                explicabo quam saepe asperiores?
+            </p>
+        </section>
+    </main>
+
 </body>
 
 </html>

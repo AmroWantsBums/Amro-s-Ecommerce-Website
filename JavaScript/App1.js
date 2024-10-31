@@ -27,7 +27,6 @@ function CreateDataVisualization(carFetchLink) {
     fetch(carFetchLink)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             const fetchPromises = data.map(car => {
                 const modelFetchLink = `${carFetchLink}/${car.codigo}`;
                 return fetch(modelFetchLink)
@@ -36,7 +35,6 @@ function CreateDataVisualization(carFetchLink) {
                         // Clean and validate the fetched data.
                         let valor = parseFloat(modelData.Valor.replace('R$', '').replace(/\./g, '').replace(',', '.'));
                         if (!isNaN(valor) && modelData.AnoModelo >= 1950 && modelData.AnoModelo <= 2024) {
-                            console.log(`Adding point for year: ${modelData.AnoModelo} with value: ${valor}`);
                             dataPoints.push({
                                 x: modelData.AnoModelo, // Year
                                 y: valor, // Price
@@ -91,8 +89,8 @@ function CreateDataVisualization(carFetchLink) {
 }
 
 // Visualization setup with defined dimensions and margins.
-let HEIGHT = 500,
-    WIDTH = 500,
+let HEIGHT = 280,
+    WIDTH = 740,
     MARGIN = 80;
 
 // Create a tooltip for displaying information.
@@ -144,7 +142,7 @@ function createLine() {
         .attr("class", "line")
         .attr("d", lineGenerator)
         .attr("fill", "none")
-        .attr("stroke", "red")
+        .attr("stroke", "black")
         .attr("stroke-width", 2);
 
     // Animate the drawing of the line.
