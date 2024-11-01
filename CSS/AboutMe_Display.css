@@ -1,0 +1,29 @@
+#me{
+    width: 36rem;
+    position: absolute;
+    z-index: -100;
+    left: 45rem;
+    top: 6rem;
+    border-radius: 20px;
+}
+
+#textOne{
+    width: 25rem;
+    position: relative;
+    left: 1rem;
+    border-right: solid 1px;
+}
+
+#textTwo{
+    width: 17rem;
+    position: absolute;
+    top: 22.8rem;
+    left: 27rem;
+}
+
+h1{
+    font-size: 6rem;
+    width: 55rem;
+    text-align: center;
+    margin: 10px;
+}
