@@ -203,3 +203,8 @@ function CreateBubbles(data) {
                 .attr("y", d => d.y);
         });
 }
+
+
+const viewCatalogueButton = document.querySelector("#viewCatalogueButton").addEventListener("click", function(){
+    window.location.href = "../Catalogue/Catalogue.html";
+})

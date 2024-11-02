@@ -67,7 +67,7 @@ function createProducts() {
 
 
 // Function to handle viewing car details
-function viewCarFunctionallity(CarButton, index) {
+function viewCarFunctionality(CarButton, index) {
     let parent = CarButton.closest(".product"); // Get the parent product element
     let priceElement = parent.querySelector('.productPrice'); // Get the price element
     let imageElement = parent.querySelector('.productImage'); // Get the image element
@@ -81,3 +81,7 @@ function viewCarFunctionallity(CarButton, index) {
     // Redirect to the preview page with all the car details as query parameters
     window.location.href = `../Preview/Preview_Page.html?name=${name}&price=${price}&image=${image}&fetchLink=${fetchLink}`;
 }
+
+const performanceButton = document.querySelector("#viewPerformanceButton").addEventListener("click", function(){
+    window.location.href = "../Performance/Performance.html";
+})

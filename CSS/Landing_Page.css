@@ -16,7 +16,7 @@
 #MainHeading {/* Adjust as needed */
     margin: 0; /* Ensure no margin */
     position: relative;
-    left: -9rem;
+    left: rem;
 }
 
 #LandingImage {
@@ -27,7 +27,7 @@
     left: -18rem;
 }
 
-#BrowseButton {
+#browseButton {
     position: relative;
     top: rem;
     width: 7rem;
@@ -55,9 +55,9 @@
 
 #TextDisplay1{
     position: absolute;
-    left: 60rem;
+    left: 55rem;
     top: 12rem;
-    width: 20rem;
+    width: 32rem;
 }
 
 #TextDisplay1 p {
@@ -80,7 +80,7 @@
 #SecondHeading{
     width: 35rem;
     position: relative;
-    left: -25rem;
+    left: 1rem;
 }
 
 
@@ -123,4 +123,32 @@
 .Buttons span {
     position: relative; /* Position text relative to button */
     z-index: 1; /* Keep text above the gradient */
+}
+
+#arrow{
+    position: absolute;
+    width: 20rem;
+    top: 13rem;
+    transform: rotate(-25deg);
+}
+
+#textDisplay2{
+    display: flex;
+}
+
+#textDisplay2 article {
+    border-left: solid;
+    position: relative;
+    padding-left: 2rem;
+    left: 3rem;
+    top: 7rem;
+    width: 40rem;
+    height: 25rem;
+    font-size: 1.2rem;
+}
+
+#viewPerformanceButton{
+    position: relative;
+    width: 10rem;
+    height: 4rem;
 }

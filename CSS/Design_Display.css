@@ -1,27 +1,29 @@
-.gallery{
+.gallery {
     margin-left: auto;
     margin-right: auto;
-    width: 1440px;
+    width: 800px;
     height: 440px;
     display: flex;
-    overflow-x: scroll;
+    flex-direction: column; /* Change from row to column */
+    overflow-x: hidden;
+    overflow-y: scroll; /* Change overflow to vertical */
     background-color: rgb(228, 228, 228);
 }
 
-.gallery div{
+.gallery div {
     width: 100%;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-rows: auto auto; /* Change to rows instead of columns */
     grid-gap: 24px;
     padding: 15px;
     flex: none;
 }
 
-.gallery div img{
-    height: 25rem;
-    width: auto;
+.gallery div img {
+    height: auto; /* Let height adjust automatically */
+    width: 100%; /* Set width to 100% to fill the container */
 }
 
-.center{
+.center {
     text-align: center;
 }

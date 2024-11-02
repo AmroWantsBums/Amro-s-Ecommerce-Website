@@ -1,18 +1,12 @@
 #slider {
     width: 33rem;
     position: relative;
-    left: 3rem;
+    left: 5rem;
     top: 31rem;
     accent-color: rgb(0, 0, 0);
     z-index: 1000;
 }
 
-#CLimage {
-    position: absolute;
-    left: 29rem;
-    top: 2rem;
-    width: 35rem;
-}
 
 body {
     overflow-x: hidden;
@@ -31,7 +25,6 @@ body {
         rgba(199, 191, 191, 0.9) 50%,
         rgba(255, 252, 252, 0.9) 100%
     );
-    z-index: -1;
 }
 
 #chart {
@@ -83,7 +76,7 @@ body {
 #f1image {
     width: 24rem;
     position: absolute;
-    top: 15rem;
+    top: 17.5rem;
     left: 11rem;
     border-radius: 2rem;
 }
@@ -98,10 +91,9 @@ body {
 }
 
 
-
 .Buttons {
-    width: 6rem;
-    height: 2rem;
+    width: 5rem;
+    height: 3rem;
     border-radius: 2rem;
     border: none;
     position: relative;
@@ -129,7 +121,7 @@ body {
 }
 
 .Buttons:hover {
-    color: rgb(227, 64, 64); /* Change text color on hover */
+    color: rgb(0, 0, 0); /* Change text color on hover */
     cursor: pointer;
     background-color: #919191; /* Keep solid background on hover */
     z-index: 1; /* Ensure button remains on top */
@@ -142,7 +134,7 @@ body {
 
 #filterButtons {
     position: relative;
-    left: 10rem;
+    left: 12rem;
     top: 1rem;
 }
 
@@ -157,4 +149,12 @@ body {
 
 #timeTooltip{
     font-size: 1rem;
+}
+
+#rightPanel {
+    font-size: 1.2rem;
+}
+
+#finalP{
+    padding-bottom: 3rem;
 }

@@ -12,6 +12,7 @@ body {
     padding: 20px;
     overflow-y: auto; /* Enable vertical scrolling */
     margin-right: 15rem;
+    margin-left: 1rem;
 }
 
 .product {
@@ -45,6 +46,8 @@ body {
     align-items: center;
     height: min-content;
     margin: 0;
+    position: relative;
+    left: 1rem;
 }
 
 .productPrice {
@@ -52,13 +55,13 @@ body {
 }
 
 .viewButton {
-    width: 5rem;
-    height: 3rem;
+    width: 6rem;
+    height: 2rem;
     border-radius: 2rem;
     border: none;
     position: relative;
     overflow: hidden;
-    background-color: #919191; /* Default background */
+    background-color: #939393; /* Default background */
     color: black; /* Default text color */
     transition: color 0.5s ease; /* Smooth color transition */
 }
@@ -70,7 +73,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #ff0000, #140e0e);
+    background: linear-gradient(45deg, #323131, #353434);
     transform: translateX(-100%);
     transition: transform 0.5s ease;
     z-index: 0;
@@ -81,7 +84,7 @@ body {
 }
 
 .viewButton:hover {
-    color: rgb(115, 114, 114); /* Change text color on hover */
+    color: rgb(189, 177, 177); /* Change text color on hover */
     cursor: pointer;
     background-color: #919191; /* Keep solid background on hover */
     z-index: 1; /* Ensure button remains on top */
@@ -91,6 +94,7 @@ body {
     position: relative; /* Position text relative to button */
     z-index: 1; /* Keep text above the gradient */
 }
+
 
 
 
@@ -132,17 +136,76 @@ body {
 
 #desc{
     position: fixed;
-    width: 30rem;
-    left: 53rem;
-    top: 10rem;
-    border-bottom: solid;
+    width: 38rem;
+    left: 45rem;
+    top: 13rem;
     transition: opacity 0.4s ease;
 }
 
 #desc p {
     font-size: 1.5rem;
+    padding-right: 2rem;
+    padding-left: 0rem;
 }
 
 #desc h1 {
     font-size: 3rem;
+    padding: 0;
+    margin: 0;
+}
+
+#secondPart{
+    border-top: solid;
+    margin-top: 2rem;
+}
+
+#secondPart h2{
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+
+#secondPart p{
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+}
+
+.Buttons {
+    width: 10rem;
+    height: 3rem;
+    border-radius: 2rem;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    background-color: #939393; /* Default background */
+    color: black; /* Default text color */
+    transition: color 0.5s ease; /* Smooth color transition */
+}
+
+.Buttons::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ffffff, #c5bdbd);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.Buttons:hover::before {
+    transform: translateX(0);
+}
+
+.Buttons:hover {
+    color: rgb(0, 0, 0); /* Change text color on hover */
+    cursor: pointer;
+    background-color: #919191; /* Keep solid background on hover */
+    z-index: 1; /* Ensure button remains on top */
+}
+
+.Buttons span {
+    position: relative; /* Position text relative to button */
+    z-index: 1; /* Keep text above the gradient */
 }

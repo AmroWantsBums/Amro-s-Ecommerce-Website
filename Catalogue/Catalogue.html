@@ -7,8 +7,8 @@
     <title>Car Gallery</title>
     <link rel="stylesheet" href="../CSS/Product_Display.css">
     <script type="module">
-        import { viewCarFunctionallity } from '../JavaScript/Product_Display.js';
-        window.viewCarFunctionallity = viewCarFunctionallity;
+        import { viewCarFunctionality } from '../JavaScript/Product_Display.js';
+        window.viewCarFunctionallity = viewCarFunctionality;
     </script>
     <script type="module"> import { loadNavbar } from "../JavaScript/Navigation_Bar.js"
         loadNavbar("Catalogue")
@@ -26,16 +26,23 @@
     <img src="./Images/FlavourImage.png" alt="" id="SideImage">
 
     <div id="desc">
-        <h1>See what you like?</h1>
+        <h1>Interested in the Journey?</h1>
         <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere corrupti eius cum, labore veniam architecto
-            quidem voluptatem dicta numquam? Illum dolorem dolore amet fuga possimus necessitatibus vitae ab voluptates
-            reprehenderit.
+            Explore the performance and price history of each Ferrari model to see how it’s evolved over time. Click on
+            a car to view its price trend graph and discover the story behind its design, craftsmanship, and
+            market value. Select a vehicle to view its trends and performance stats.
         </p>
+        <div id="secondPart">
+            <h2>Still not convinced?</h2>
+            <p>
+                Check out the performance stats below
+            </p>
+            <button id="viewPerformanceButton" class="Buttons"><span>View Stats</span></button>
+        </div>
     </div>
 
     <div id="main">
-        <!-- Products will be dynamically generated here -->
+
     </div>
 
 

@@ -57,7 +57,7 @@ body{
     border-radius: 20px;
 }
 
-#mainPanel h1 {
+#heading1 {
     position: absolute;
     top: 4rem;
     left: 17.5rem;
@@ -73,7 +73,7 @@ body{
     text-decoration: underline;
 }
 
-#mainPanel div {
+#descriptionSection {
     position: absolute;
     top: 10.5rem;
     left: 26.5rem;
@@ -154,6 +154,70 @@ body{
 }
 
 .ResetButton span {
+    position: relative; /* Position text relative to button */
+    z-index: 1; /* Keep text above the gradient */
+}
+
+#testDriveSection{
+    position: relative;
+    top: 0rem;
+    left: 2rem;
+    width: 45rem;
+    padding-bottom: 2rem;
+}
+
+#testDriveSection h1{
+    font-size: 3rem;
+}
+
+#testDriveSection p{
+    position: relative;
+    top: -1rem;
+    font-size: 1.1rem;
+}
+
+#viewCatalogueButton{
+    width: 43rem;
+    height: 3rem;
+}
+
+.Buttons {
+    width: 6rem;
+    height: 2rem;
+    border-radius: 2rem;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    background-color: #939393; /* Default background */
+    color: black; /* Default text color */
+    transition: color 0.5s ease; /* Smooth color transition */
+}
+
+.Buttons::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #323131, #353434);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.Buttons:hover::before {
+    transform: translateX(0);
+}
+
+.Buttons:hover {
+    color: rgb(189, 177, 177); /* Change text color on hover */
+    cursor: pointer;
+    background-color: #919191; /* Keep solid background on hover */
+    z-index: 1; /* Ensure button remains on top */
+}
+
+.Buttons span {
     position: relative; /* Position text relative to button */
     z-index: 1; /* Keep text above the gradient */
 }
