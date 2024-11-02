@@ -8,6 +8,15 @@ let carFetchLinks = []; // Array to store fetch links for future use
 
 // Uncomment the fetch logic and comment out the hardcoded data when ready
 
+if (sessionStorage.getItem('carData')) {
+    const carData = JSON.parse(sessionStorage.getItem('carData'));
+    carNames = carData.carNames;
+    carPrices = carData.carPrices;
+    carFetchLinks = carData.carFetchLinks;
+    createProducts(); // Call function to display products
+} else {
+
+}
 // Fetch car data from the API
 /*
 fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
@@ -37,7 +46,7 @@ fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
     .then(prices => {
         carPrices = prices; // Store the fetched prices
         createProducts(); // Call function to create product elements
-        localStorage.setItem('carFetchLinks', JSON.stringify(carFetchLinks)); // Save fetch links to local storage
+        sessionStorage.setItem('carData', JSON.stringify({ carNames, carPrices, carFetchLinks }));
     });
 */
 
@@ -55,11 +64,11 @@ function createProducts() {
         const sanitizedName = name.replace(/\//g, ''); // Remove slashes from name to avoid issues
         return `
             <div class="product">
-                <img src="./Images/${sanitizedName}.jpg" alt="" class="productImage"> <!-- Display car image -->
+                <img src="./Images/${sanitizedName}.jpg" alt="Image of ferrari ${sanitizedName}" class="productImage"> <!-- Display car image -->
                 <div class="deets">
                 <h3 class="productName">${name}</h3> <!-- Display car name -->
                 <h4 class="productPrice">${carPrices[index] || '$0.00'}</h4> <!-- Display car price -->
-                <button class="viewButton" onclick="viewCarFunctionallity(this, ${index})"><span>View</span></button> <!-- Button to view car details -->
+                <button class="viewButton" onclick="viewCarFunctionality(this, ${index})"><span>View</span></button> <!-- Button to view car details -->
                 </div>
             </div>`;
     }).join(""); // Join the array of HTML strings into one
@@ -85,3 +94,4 @@ function viewCarFunctionality(CarButton, index) {
 const performanceButton = document.querySelector("#viewPerformanceButton").addEventListener("click", function(){
     window.location.href = "../Performance/Performance.html";
 })
+

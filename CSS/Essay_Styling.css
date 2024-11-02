@@ -19,7 +19,7 @@
     opacity: 0;
     max-height: 0;
     position: relative;
-    top: -6rem;
+    top: -3rem;
     overflow: hidden;
     transition: opacity 0.5s ease, max-height 0.5s ease;
 }
@@ -36,6 +36,7 @@ main{
     position: fixed;
     left: 40rem;
     border-radius: 20px;
+    transition: left 0.5s ease;
 }
 
 aside{
@@ -46,6 +47,7 @@ aside{
     width: 34rem;
     height: 34rem;
     border-right: solid;
+    transition: opacity 0.5s ease;
 }
 
 #buttonsContainer{
@@ -61,7 +63,7 @@ aside{
     overflow: hidden;
     background-color: #939393; /* Default background */
     color: black; /* Default text color */
-    transition: color 0.5s ease; /* Smooth color transition */
+    transition: color 0.5s ease, width 0.5s ease; /* Smooth color transition */
 }
 
 .Buttons::before {
@@ -121,4 +123,8 @@ aside{
 #heading span{
     color: white;
     z-index: 100;
+}
+
+#secondEssayName{
+    margin-top: -1rem;
 }
