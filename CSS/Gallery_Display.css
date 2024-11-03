@@ -136,7 +136,7 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #ff0000, #140e0e);
+    background: linear-gradient(45deg, #323131, #353434);
     transform: translateX(-100%);
     transition: transform 0.5s ease;
     z-index: 0;

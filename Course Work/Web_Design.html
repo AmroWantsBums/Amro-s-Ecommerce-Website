@@ -11,6 +11,7 @@
     </script>
     <link rel="stylesheet" href="../CSS/NavigationBar_Display.css">
     <link rel="stylesheet" href="../CSS/General_Styling.css">
+    <script src="../JavaScript/Design_Interactivity.js" defer></script>
 </head>
 
 <body>
@@ -21,35 +22,78 @@
         </nav>
     </header>
 
-    <h3 class="center">Desktop UI Wireframes</h3>
-    <div class="gallery">
-        <div>
-            <img src="./UI Wireframes/Gallery Page.png" alt="" class="UIimages">
-            <img src="./UI Wireframes/Catalogue Page.png" alt="" class="UIimages">
+    <section id="wireframeSection">
+        <div id="selection">
+            <h1>Wireframes</h1>
+            <button id="updatedWireframesButton" class="Buttons"><span>Updated Wireframes</span></button>
+            <button id="desktopWireframesButton" class="Buttons"><span>Initial Desktop Wireframes</span></button>
+            <button id="mobileWireframesButton" class="Buttons"><span>Initial Mobile Wireframes</span></button>
         </div>
-        <div>
-            <img src="./UI Wireframes/Preview Page.png" alt="" class="UIimages">
-            <img src="./UI Wireframes/Cart Page.png" alt="" class="UIimages">
-        </div>
-    </div>
 
-    <p>
-        <br><br><br>
-    </p>
+        <section id="wireframes">
+            <div id="updatedWireframes">
+                <div class="gallery">
+                    <div>
+                        <img src="./UI Wireframes/Updated Wireframes/Landing Page.png"
+                            alt="Wireframe of the landing page" class="UIimages">
+                        <img src="./UI Wireframes/Updated Wireframes/Home Page.png" alt="Wireframe of the home page"
+                            class="UIimages">
+                    </div>
+                    <div>
+                        <img src="./UI Wireframes/Updated Wireframes/Gallery Page.png"
+                            alt="Wireframe of the gallery page" class="UIimages">
+                        <img src="./UI Wireframes/Updated Wireframes/Catalogue Page.png"
+                            alt="Wireframe of the catalogue page" class="UIimages">
+                    </div>
+                    <div>
+                        <img src="./UI Wireframes/Updated Wireframes/Preview Page.png"
+                            alt="Wireframe of the preview page" class="UIimages">
+                        <img src="./UI Wireframes/Updated Wireframes/Test Drive Page.png"
+                            alt="Wireframe of the test drive page" class="UIimages">
+                    </div>
+                    <div>
+                        <img src="./UI Wireframes/Updated Wireframes/Performance Page.png"
+                            alt="Wireframe of the performance page" class="UIimages">
+                        <img src="./UI Wireframes/Updated Wireframes/Essay Page.png" alt="Wireframe of the essay page"
+                            class="UIimages">
+                    </div>
+                    <div>
+                        <img src="./UI Wireframes/Updated Wireframes/Design Page.png" alt="Wireframe of the design page"
+                            class="UIimages">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <h3 class="center">Mobile UI Wireframes</h3>
-    <div class="gallery">
-        <div>
-            <img src="./UI Wireframes/Mobile Gallery.png" alt="">
-            <img src="./UI Wireframes/Mobile Catalogue.png" alt="">
+        <div id="desktopWireframes">
+            <div class="gallery">
+                <div>
+                    <img src="./UI Wireframes/Gallery Page.png" alt="Wireframe of the gallery page" class="UIimages">
+                    <img src="./UI Wireframes/Catalogue Page.png" alt="Wirerame of the catalogue page" class="UIimages">
+                </div>
+                <div>
+                    <img src="./UI Wireframes/Preview Page.png" alt="Wirerame of the preview page" class="UIimages">
+                    <img src="./UI Wireframes/Cart Page.png" alt="Wireframe of the cart page" class="UIimages">
+                </div>
+            </div>
         </div>
-        <div>
-            <img src="./UI Wireframes/Mobile Preview.png" alt="">
-            <img src="./UI Wireframes/Mobile Cart.png" alt="">
+        <div id="mobileWireframes">
+            <div class="gallery">
+                <div>
+                    <img src="./UI Wireframes/Mobile Gallery.png" alt="Wireframe of the gallery page on mobile">
+                    <img src="./UI Wireframes/Mobile Catalogue.png" alt="Wirerame of the catalogue page on mobile">
+                </div>
+                <div>
+                    <img src="./UI Wireframes/Mobile Preview.png" alt="Wirerame of the preview page on mobile">
+                    <img src="./UI Wireframes/Mobile Cart.png" alt="Wireframe of the cart page on mobile">
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+    </section>
 
-    <section>
+
+    <section id="styleGuide">
 
         <h2>Style guide</h2>
 
@@ -65,36 +109,26 @@
 
         <h3>Color Palette</h3>
 
-        <p>
-            The color palette will enhance the website’s aesthetic while reflecting the essence of Ferrari. The primary
-            color will be Ferrari Red (#FF2800), symbolizing the brand's passion and performance. Various shades of red
-            will be used to create depth and visual interest:
-
-        <ul>
-            <li>
-                Primary Color: Ferrari Red (#FF2800)
-            </li>
-            <li>
-                Dark Red: (#B22222) for highlights and backgrounds
-            </li>
-            <li>
-                Light Red: (#FF6F61) for secondary accents
-            </li>
-            <li>
-                Black: (#000000) for all text to ensure readability
-            </li>
-            <li>
-                White: (#FFFFFF) for contrast and to separate sections visually
-            </li>
-        </ul>
+        <p id="colorPaletteP">
+            The color palette is designed to enhance the website’s modern, sleek aesthetic while aligning with Ferrari’s
+            iconic style. The primary color, deep black (0, 0, 0), conveys elegance and power, while the gradient of
+            grays—from dark (50, 49, 49) to very light gray (217, 217, 217)—creates contrast and depth across each page.
+            These shades provide a sophisticated visual balance, allowing imagery and interactive elements to stand out
+            effectively.
+            <img src="./Style Guide Images/Color Palette.png" alt="Image of color palette" id="colorPalette">
         </p>
 
         <h3>Typography</h3>
 
-        <p>
-            Typography will play a crucial role in establishing the site’s tone. We will use Poppins, a modern
-            sans-serif font that conveys elegance and clarity. This will be backed up with sans-serif to fall back on if
-            Poppins is not available.
+        <p id="fontP">
+            Typography is central to establishing the site’s tone and user experience. Poppins, a modern sans-serif
+            font, has been chosen as the primary typeface due to its clean lines and contemporary style, which perfectly
+            match Ferrari’s ethos of elegance and precision. Its balanced proportions and readability make it ideal for
+            both headings and body text, allowing users to navigate the site with ease. This
+            typographic approach not only reinforces the brand’s visual identity but also ensures a cohesive and
+            visually pleasing experience across all devices and screen sizes.
+
+            <img src="./Style Guide Images/Poppins Font.png" alt="Image of the Poppins font" id="fontImage">
         </p>
 
         <h3>UI Elements</h3>
@@ -109,29 +143,26 @@
         <p>
             High-quality imagery is essential to capture the essence of Ferrari. Car images will be bright and vibrant,
             showcasing the sleek design and unique features of each vehicle. A consistent aspect ratio will be
-            maintained across the gallery and catalog for uniformity. For data visualizations, a Bubble Word Map will
-            display car names in varying shades of red, with clear and readable bubbles. On hover, an overlay will show
-            the car's image, price, name, and fuel type. A Line Graph will illustrate price trends over the past four
-            years, with data points in Ferrari Red and connecting lines in Dark Red, featuring clear Black axis labels
-            for easy interpretation.
+            maintained across the gallery and catalog for uniformity.
         </p>
 
         <h3>Layout and Grid System</h3>
 
         <p>
-            To achieve a structured and visually appealing layout, a 3-column grid system will be employed. This
-            flexible design allows for easy adjustments across different screen sizes while maintaining alignment and
-            spacing. Responsive design is crucial for users on various devices. On smaller screens, the navigation bar
-            will collapse into a hamburger menu, ensuring a clean and accessible experience.
+            To create a structured and visually appealing layout, a single-row grid system will be used, displaying
+            content in distinct columns. This approach allows for clear alignment and spacing across all screen sizes,
+            ensuring consistency without the need for complex adjustments
         </p>
 
         <h3>Interactive Elements</h3>
 
-        <p>
+        <p id="interactivityP">
             Interactive elements will enhance user engagement. Subtle animations will be used for buttons and links,
             providing immediate feedback during user interactions. Transition effects for images and graphs will create
             a smooth experience as users navigate through the site. On the homepage, a dynamic animation will introduce
             key aspects of the Ferrari brand, setting an exciting tone for the rest of the site.
+
+            <button class="Buttons" id="displayButton"><span>Interactivity</span></button>
         </p>
 
         <h3>Accessibility Considerations</h3>

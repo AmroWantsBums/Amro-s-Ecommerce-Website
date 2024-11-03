@@ -158,3 +158,9 @@ body {
 #finalP{
     padding-bottom: 3rem;
 }
+
+#loading{
+    position: relative;
+    left: 23rem;
+    top: 23rem;
+}

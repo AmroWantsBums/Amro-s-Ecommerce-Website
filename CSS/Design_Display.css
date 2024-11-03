@@ -1,6 +1,6 @@
 .gallery {
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 2rem;
     width: 800px;
     height: 440px;
     display: flex;
@@ -26,4 +26,137 @@
 
 .center {
     text-align: center;
+}
+
+
+#wireframeSection{
+    position: relative;
+    left: 8rem;
+    top: 2rem;
+    background-color: rgb(217, 217, 217);
+    height: 30rem;
+    width: 80rem;
+    border-radius: 20px;
+    overflow: hidden;
+}   
+
+#selection{
+    position: absolute;
+    top: 4.8rem;
+    left: 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#desktopWireframes{
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    left: 28rem;
+}
+
+#mobileWireframes{
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    left: 28rem;
+}
+
+#updatedWireframes{
+    transition: opacity 0.5s ease;
+    position: absolute;
+    left: 28rem;
+    z-index: 1;
+}
+
+#wireframes{
+    margin-top: 1rem;
+    z-index: -3;
+}
+
+.Buttons {
+    width: 10rem;
+    height: 3rem;
+    border-radius: 2rem;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    background-color: #939393; /* Default background */
+    color: black; /* Default text color */
+    transition: color 0.5s ease, width 0.5s ease; /* Smooth color transition */
+}
+
+.Buttons::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ffffff, #c5bdbd);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.Buttons:hover::before {
+    transform: translateX(0);
+}
+
+.Buttons:hover {
+    color: rgb(0, 0, 0); /* Change text color on hover */
+    cursor: pointer;
+    background-color: #919191; /* Keep solid background on hover */
+    z-index: 1; /* Ensure button remains on top */
+}
+
+.Buttons span {
+    position: relative; /* Position text relative to button */
+    z-index: 1; /* Keep text above the gradient */
+}
+
+#styleGuide{
+    width: 76rem;
+    background-color: rgb(217, 217, 217);
+    position: relative;
+    left: 8rem;
+    top: 4rem;
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+#colorPaletteP{
+    display: flex;
+}
+
+#colorPalette{
+    position: relative;
+    bottom: 1rem;
+    width: 50rem;
+    margin-left: 5rem;
+}
+
+#fontP{
+    display: flex;
+}
+
+#fontImage{
+    width: 30rem;
+    position: relative;
+    right: 20rem;
+    margin-left: 25rem;
+    border-radius: 20px;
+}
+
+#interactivityP{
+    display: flex;
+}
+
+#displayButton{
+    width: 60rem;
+    margin-left: 18rem;
+    position: relative;
+    right: 9rem;
+    top: 2rem;
 }
