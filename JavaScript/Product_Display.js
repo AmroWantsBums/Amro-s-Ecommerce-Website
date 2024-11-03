@@ -15,10 +15,8 @@ if (sessionStorage.getItem('carData')) {
     carFetchLinks = carData.carFetchLinks;
     createProducts(); // Call function to display products
 } else {
-
-}
 // Fetch car data from the API
-/*
+
 fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
     .then((response) => response.json()) // Parse the response as JSON
     .then(data => {
@@ -48,15 +46,7 @@ fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
         createProducts(); // Call function to create product elements
         sessionStorage.setItem('carData', JSON.stringify({ carNames, carPrices, carFetchLinks }));
     });
-*/
-
-// Hardcoded data for testing
-carNames = ['360 Spider 400cv', '360 Challenge Stradale', '575M Maranello F1 V12 515cv', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4', '348 GTS 3.4']; // Example car names
-carPrices = ['$20,000', '$25,000', '$30,000', '$40,000', '$50,000', '$60,000', '$70,000', '$80,000']; // Example car prices
-carFetchLinks = ['https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/10624/anos', 'https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/10624/anos/2024-1', 'https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/10624/anos/2023-1']; // Example fetch links
-
-// Call the function to create product elements
-createProducts();
+}
 
 // Function to create product elements and display them
 function createProducts() {

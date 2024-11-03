@@ -1,14 +1,8 @@
-
-/* 
-Set up the dimensions for the SVG element, defining the area where the visualization will take place.
-This establishes a 780x780 pixel space that accommodates the bubbles we will create.
-*/
 let HEIGHT = 590,
     WIDTH = 780;
 
 const tooltipPlaceholder = document.getElementById('tooltipPlaceholder');    
 const mainPanel = document.querySelector("#mainPanel");
-
 
 // Create the SVG element in the specified container and set its height and width.
 let svg = d3
@@ -22,60 +16,60 @@ const redShades = [
     'rgb(0, 0, 0)'  
 ];
 
-/* 
-The randomRedShade function selects a random color from the redShades array.
-*/
+// Function to select a random color from the redShades array.
 function randomRedShade() {
     const randomIndex = Math.floor(Math.random() * redShades.length);
     return redShades[randomIndex];
 }
 
-// Dummy data for testing
-const testData = [
-    { name: "360 Modena", valor: 20000, fuel: "Gasoline", year: 2020 },
-    { name: "Car 2", valor: 25000, fuel: "Diesel", year: 2019 },
-    { name: "Car 3", valor: 30000, fuel: "Electric", year: 2021 },
-];
+// Function to fetch car data from the API.
+function fetchCarData() {
+    return fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
+        .then(response => response.json())
+        .then(data => {
+            let carData = data.modelos;
+            let carCodes = carData.map(car => car.codigo);
+            let carNames = carData.map(car => car.nome);
 
-/* 
-// Commenting out the API fetch section for testing purposes
-fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos')
-    .then((response) => response.json())
-    .then((data) => {
-        let carData = data.modelos;
-        let carCodes = carData.map(car => car.codigo);
-        let carNames = carData.map(car => car.nome);
-        
-        return Promise.all(carCodes.map((code, index) => {
-            return fetch(`https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/${code}/anos`)
-                .then(response => response.json())
-                .then(yearData => {
-                    return fetch(`https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/${code}/anos/${yearData[0].codigo}`)
-                        .then(response => response.json())
-                        .then(priceData => {
-                            return {
-                                name: carNames[index],
-                                valor: parseFloat(priceData.Valor.replace('R$', '').replace(/\./g, '').replace(',', '.')),
-                                fuel: priceData.Combustivel || 'Unknown',
-                                year: priceData.AnoModelo
-                            };
-                        });
-                });
-        }));
-    })
-    .then(results => {
-        // Pass the fetched car data to the CreateBubbles function for visualization.
-        CreateBubbles(results);
-    })
-    .catch(error => console.error(error));
-*/
+            return Promise.all(carCodes.map((code, index) => {
+                return fetch(`https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/${code}/anos`)
+                    .then(response => response.json())
+                    .then(yearData => {
+                        return fetch(`https://parallelum.com.br/fipe/api/v1/carros/marcas/20/modelos/${code}/anos/${yearData[0].codigo}`)
+                            .then(response => response.json())
+                            .then(priceData => {
+                                return {
+                                    name: carNames[index],
+                                    valor: parseFloat(priceData.Valor.replace('R$', '').replace(/\./g, '').replace(',', '.')),
+                                    fuel: priceData.Combustivel || 'Unknown',
+                                    year: priceData.AnoModelo
+                                };
+                            });
+                    });
+            }));
+        });
+}
 
-// Instead of fetching data, use the test data for visualization.
-CreateBubbles(testData);
+// Check sessionStorage for fetched car data
+let fetchedCarData = sessionStorage.getItem('fetchedCarData');
+
+if (fetchedCarData) {
+    // If data exists in sessionStorage, parse and use it
+    CreateBubbles(JSON.parse(fetchedCarData));
+} else {
+    // Fetch data from the API if it's not in sessionStorage
+    fetchCarData()
+        .then(results => {
+            // Store the fetched car data in sessionStorage
+            sessionStorage.setItem('fetchedCarData', JSON.stringify(results));
+            // Pass the fetched car data to the CreateBubbles function for visualization
+            CreateBubbles(results);
+        })
+        .catch(error => console.error('Error fetching car data:', error));
+}
 
 // The CreateBubbles function generates the visual representation of the data by creating circles for each car model.
 function CreateBubbles(data) {
-    // Create and style the bubbles (circles) based on the car data.
     let bubbles = svg
         .selectAll("circle")
         .data(data)
@@ -87,36 +81,48 @@ function CreateBubbles(data) {
         .style("fill", () => randomRedShade())
         .on("mouseenter", function(event, d) {
             d3.select(this)
-                .style("cursor", "pointer");
+                .style("cursor", "pointer")
+                .transition()
+                .duration(200)
+                .attr("r", fixedRadius * 1.7) // Increase size on hover
+                .style("fill", "rgb(147, 147, 147)"); // Change to hover color
+
+            d3.select(event.target)
+                .raise(); // Bring the hovered circle to the front
+
+            // Show text above the circle
+            d3.select(`#text-${d.name.replace(/\s+/g, '-')}`) // Use a unique ID for text
+                .style("opacity", 1) // Make text visible
+                .style("font-size", `${fixedRadius / 4 * 1.2}px`) // Increase text size on hover
+                .raise(); // Bring text to front
         })
         .on("mouseleave", function(event, d) {
             d3.select(this)
-                .style("cursor", "default");
+                .transition()
+                .duration(200)
+                .attr("r", fixedRadius) // Reset size on exit
+                .style("fill", randomRedShade()); // Reset color
+
+            // Hide text when not hovered
+            d3.select(`#text-${d.name.replace(/\s+/g, '-')}`) // Use the same ID to select
+                .style("opacity", 0); // Hide text
         })
         .on("click", (event, d) => {
-            // Get the position of the clicked circle
             const clickedCircle = d3.select(event.target);
             const clickedX = +clickedCircle.attr("cx");
             const clickedY = +clickedCircle.attr("cy");
             
-            // Create a new div to represent the moving circle
             const newCircle = document.createElement('div');
             newCircle.classList.add('moving-circle');
             document.body.appendChild(newCircle);
-            
-            // Position it at the clicked circle's location
-            newCircle.style.position = 'absolute'; // Make it absolute
+            newCircle.style.position = 'absolute'; 
             const svgRect = svg.node().getBoundingClientRect();
-            
-            // Adjust position for scrolling
             newCircle.style.left = `${clickedX + svgRect.left}px`;
-            newCircle.style.top = `${clickedY + svgRect.top + window.scrollY}px`; // Add scrollY
-            
-            // Move the new circle to a predetermined position
-            const targetX = 1138; // Move to the right side of the screen
-            const targetY = 360 + window.scrollY; // Keep the same vertical position + scrollY
+            newCircle.style.top = `${clickedY + svgRect.top + window.scrollY}px`; 
+
+            const targetX = 1138; 
+            const targetY = 360 + window.scrollY; 
         
-            // Animate the new circle
             setTimeout(() => {
                 newCircle.style.transition = 'left 0.5s ease, top 0.5s ease';
                 newCircle.style.left = `${targetX}px`;
@@ -137,42 +143,38 @@ function CreateBubbles(data) {
                         d3.select("#tooltip")
                             .select("#tooltipPrice").text(`Price: R$${d.valor.toFixed(2)}`);
                         d3.select("#tooltip")
-                            .select(".tooltipImage") // Make sure to select the class with a dot (.)
+                            .select(".tooltipImage")
                             .attr("src", `../Catalogue/Images/${d.name.replace(/\//g, '')}.jpg`);
-                            const resetButton = document.createElement('button');
-                            const resetText = document.createElement('span'); // Create a span for the text
-                            resetText.textContent = "Reset"; // Set the text content for the span
-                            resetButton.appendChild(resetText); 
-                            resetButton.classList.add("ResetButton");
-                            resetButton.style.position = 'fixed';
-                            resetButton.style.top = '30rem'; // Adjust as needed
-                            resetButton.style.left = '22.9rem'; // Adjust as needed
-                            resetButton.style.zIndex = '1000'; // Ensure it's above other elements
-                            resetButton.onclick = () => {
-                                bubbles.style("opacity", 1) 
-                                       .attr("r", fixedRadius); 
-                                d3.select("#tooltip").style("display", "none").style("opacity", 0);
-                                tooltipPlaceholder.style.transform = 'translateX(0rem)'; 
-                                mainPanel.style.opacity = "1";
-                                resetButton.remove();
-                            };
                         
-                            // Append the reset button to the body
-                            document.body.appendChild(resetButton);
-                    }, 1000); // Delay for tooltip display
+                        const resetButton = document.createElement('button');
+                        const resetText = document.createElement('span'); 
+                        resetText.textContent = "Reset"; 
+                        resetButton.appendChild(resetText); 
+                        resetButton.classList.add("ResetButton");
+                        resetButton.style.position = 'fixed';
+                        resetButton.style.top = '30rem'; 
+                        resetButton.style.left = '22.9rem'; 
+                        resetButton.style.zIndex = '1000'; 
+                        resetButton.onclick = () => {
+                            bubbles.style("opacity", 1).attr("r", fixedRadius); 
+                            d3.select("#tooltip").style("display", "none").style("opacity", 0);
+                            tooltipPlaceholder.style.transform = 'translateX(0rem)'; 
+                            mainPanel.style.opacity = "1";
+                            resetButton.remove();
+                        };
+                        
+                        document.body.appendChild(resetButton);
+                    }, 1000);
                 }, 1000); 
             }, 0);
             
-            // Dim other bubbles
             bubbles.style("opacity", 0.2);
             d3.select(event.target)
                 .style("opacity", 1)
                 .transition()
                 .duration(200)
-                .attr("r", fixedRadius * 1.5); // Enlarge the clicked bubble.
+                .attr("r", fixedRadius * 1.5);
         });
-        
-        
 
     // Add text labels for each bubble, truncated if too long.
     let text = svg
@@ -187,7 +189,7 @@ function CreateBubbles(data) {
         .style("pointer-events", "none")
         .text(d => {
             const maxLength = Math.floor(fixedRadius / 5);
-            return d.name.length > maxLength ? d.name.substring(0, maxLength) + '...' : d.name; // Truncates the names if necessary.
+            return d.name.length > maxLength ? d.name.substring(0, maxLength) + '...' : d.name; // Truncate names if necessary.
         });
 
     // Set up the simulation for existing bubbles
@@ -204,7 +206,6 @@ function CreateBubbles(data) {
         });
 }
 
-
 const viewCatalogueButton = document.querySelector("#viewCatalogueButton").addEventListener("click", function(){
     window.location.href = "../Catalogue/Catalogue.html";
-})
+});
