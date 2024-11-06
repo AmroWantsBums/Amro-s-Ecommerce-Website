@@ -88,6 +88,7 @@ const performanceButton = document.querySelector("#viewPerformanceButton").addEv
 
 function addFunctionality(){
     document.addEventListener('DOMContentLoaded', function() {
+        console.log("Sho dawg");    
         const Hovers = document.querySelectorAll(".product");
         const Desc = document.querySelector("#desc");
         const searchBar = document.querySelector("#searchSection");

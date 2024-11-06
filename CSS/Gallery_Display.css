@@ -1,12 +1,18 @@
 #tooltip {
     width: 34rem; /* Tooltip area */
     position: absolute; /* Use absolute positioning */
-    top: 6rem;
+    top: 0rem;
     left: 3.4rem;
     transition: opacity 1.5s ease; /* Transition for opacity */
     opacity: 0; /* Start with zero opacity */
     display: flex;/* Initially hidden */
     overflow: hidden;
+    gap: 0rem;
+}
+
+#tooltip h4{
+    margin: 0.15rem;
+    font-size: 1.5rem;
 }
 
 
