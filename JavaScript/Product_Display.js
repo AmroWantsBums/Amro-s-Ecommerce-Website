@@ -62,6 +62,7 @@ function createProducts() {
                 </div>
             </div>`;
     }).join(""); // Join the array of HTML strings into one
+    addFunctionality();
 }
 
 
@@ -85,3 +86,58 @@ const performanceButton = document.querySelector("#viewPerformanceButton").addEv
     window.location.href = "../Performance/Performance.html";
 })
 
+function addFunctionality(){
+    document.addEventListener('DOMContentLoaded', function() {
+        const Hovers = document.querySelectorAll(".product");
+        const Desc = document.querySelector("#desc");
+        const searchBar = document.querySelector("#searchSection");
+
+        Hovers.forEach(Hover => {
+            Hover.addEventListener('mouseenter', function() {
+                let Image = Hover.querySelector(".productImage");
+                Image.classList.add("show");
+    
+                let deets = Hover.querySelector('.deets');
+                deets.style.left = "30rem";
+                Desc.style.opacity = "0";
+                searchBar.style.opacity = "0";
+                Hovers.forEach(otherHover => {
+                    if (otherHover !== Hover) {
+                        otherHover.style.width = "36rem";
+                    } else {
+                        otherHover.style.width = "68rem";
+                    }
+                });
+            });
+    
+            Hover.addEventListener('mouseleave', function() {
+                let Image = Hover.querySelector(".productImage");
+                Image.classList.remove("show");
+                
+                let deets = Hover.querySelector('.deets');
+                deets.style.left = "0rem";
+                Desc.style.opacity = "1";
+                searchBar.style.opacity = "1";
+                Hovers.forEach(otherHover => {
+                    otherHover.style.width = "36rem";
+                });
+            });
+        });
+    });
+    
+}
+
+const searchInput = document.querySelector("#searchSection input"); // Select the search input
+    searchInput.addEventListener("input", () => { // Listen for input changes
+        const searchText = searchInput.value.toLowerCase(); // Get the lowercase search text
+        const products = document.querySelectorAll(".product"); // Select all product elements
+
+        products.forEach((product, index) => {
+            const carName = carNames[index].toLowerCase(); // Get the car name for each product in lowercase
+            if (carName.includes(searchText)) {
+                product.style.display = ""; // Show if it matches
+            } else {
+                product.style.display = "none"; // Hide if it doesn't match
+            }
+        });
+    });

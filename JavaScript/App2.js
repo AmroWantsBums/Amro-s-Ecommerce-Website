@@ -84,29 +84,24 @@ function CreateBubbles(data) {
                 .style("cursor", "pointer")
                 .transition()
                 .duration(200)
-                .attr("r", fixedRadius * 1.7) // Increase size on hover
-                .style("fill", "rgb(147, 147, 147)"); // Change to hover color
-
-            d3.select(event.target)
-                .raise(); // Bring the hovered circle to the front
-
+                .attr("r", fixedRadius * 1.7)
+                .style("fill", "rgb(147, 147, 0)")
+                .on("end", () => d3.select(this).raise());
+        
             // Show text above the circle
-            d3.select(`#text-${d.name.replace(/\s+/g, '-')}`) // Use a unique ID for text
-                .style("opacity", 1) // Make text visible
-                .style("font-size", `${fixedRadius / 4 * 1.2}px`) // Increase text size on hover
-                .raise(); // Bring text to front
+            d3.select(`#text-${d.name.replace(/\s+/g, '-')}`)
+                .style("opacity", 1)
+                .style("font-size", `${fixedRadius / 4 * 1.2}px`)
+                .raise();
         })
         .on("mouseleave", function(event, d) {
             d3.select(this)
                 .transition()
                 .duration(200)
-                .attr("r", fixedRadius) // Reset size on exit
-                .style("fill", randomRedShade()); // Reset color
-
-            // Hide text when not hovered
-            d3.select(`#text-${d.name.replace(/\s+/g, '-')}`) // Use the same ID to select
-                .style("opacity", 0); // Hide text
-        })
+                .attr("r", fixedRadius)
+                .style("fill", randomRedShade());
+        
+        })        
         .on("click", (event, d) => {
             const clickedCircle = d3.select(event.target);
             const clickedX = +clickedCircle.attr("cx");

@@ -141,12 +141,12 @@ body {
     position: fixed;
     width: 38rem;
     left: 45rem;
-    top: 13rem;
+    top: 5rem;
     transition: opacity 0.4s ease;
 }
 
 #desc p {
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding-right: 2rem;
     padding-left: 0rem;
 }
@@ -211,4 +211,18 @@ body {
 .Buttons span {
     position: relative; /* Position text relative to button */
     z-index: 1; /* Keep text above the gradient */
+}
+
+#searchSection h1{
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+
+#searchSection input{
+    border-radius: 20px;
+    height: 2rem;
+    text-align: center;
+    background-color: #fff7f7;
+    color: #000000;
 }
