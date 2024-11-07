@@ -146,6 +146,6 @@ slider.addEventListener("input", event => {
     const round = +event.target.value;
     update(round);
 });
-
+update(1);
     })
     .catch(error => console.error('Error fetching data:', error));

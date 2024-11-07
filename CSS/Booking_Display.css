@@ -6,6 +6,7 @@
     position: relative;
     left: 30rem;
     top: 10rem;
+    animation: loadFromLeft 1s ease-out;
 }
 
 #bookingForm div {
@@ -21,6 +22,7 @@
     position: absolute;
     top: 5rem;
     z-index: -1000;
+    animation: loadFromLeft 1s ease-out;
 }
 
 #mainHeading{
@@ -29,6 +31,7 @@
     left: 12rem;
     top: 10rem;
     margin: 0;
+    animation: loadFromLeft 1s ease-out;
 }
 
 #mainHeading span{
@@ -100,11 +103,12 @@
     font-size: 1.2rem;
     padding: 1rem;
     border-left: solid;
+    animation: loadFromTop 1s ease-out;
 }
 
 #message {
     position: relative;
-    top: -40rem;
+    top: -44rem;
     left: 34rem;
     opacity: 0;
     transition: opacity 0.5s ease;
@@ -112,4 +116,38 @@
 
 main{
     height: 20rem;
+}
+
+
+@keyframes loadFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes loadFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes loadFromTop {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

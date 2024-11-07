@@ -87,9 +87,7 @@ const performanceButton = document.querySelector("#viewPerformanceButton").addEv
 })
 
 function addFunctionality(){
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log("Sho dawg");    
-        const Hovers = document.querySelectorAll(".product");
+    const Hovers = document.querySelectorAll(".product");
         const Desc = document.querySelector("#desc");
         const searchBar = document.querySelector("#searchSection");
 
@@ -123,22 +121,33 @@ function addFunctionality(){
                     otherHover.style.width = "36rem";
                 });
             });
-        });
-    });
-    
+        });         
 }
 
 const searchInput = document.querySelector("#searchSection input"); // Select the search input
-    searchInput.addEventListener("input", () => { // Listen for input changes
-        const searchText = searchInput.value.toLowerCase(); // Get the lowercase search text
-        const products = document.querySelectorAll(".product"); // Select all product elements
+const noResultsMessage = document.getElementById("noSearchResults"); // Select the "No results" message
+const productsContainer = document.querySelector("#main"); // Select the container where products are displayed
 
-        products.forEach((product, index) => {
-            const carName = carNames[index].toLowerCase(); // Get the car name for each product in lowercase
-            if (carName.includes(searchText)) {
-                product.style.display = ""; // Show if it matches
-            } else {
-                product.style.display = "none"; // Hide if it doesn't match
-            }
-        });
+searchInput.addEventListener("input", () => { // Listen for input changes
+    const searchText = searchInput.value.toLowerCase(); // Get the lowercase search text
+    const products = document.querySelectorAll(".product"); // Select all product elements
+
+    let matchesFound = false; // Flag to check if there are any matching results
+
+    products.forEach((product, index) => {
+        const carName = carNames[index].toLowerCase(); // Get the car name for each product in lowercase
+        if (carName.includes(searchText)) {
+            product.style.display = ""; // Show if it matches
+            matchesFound = true; // Mark that we found a match
+        } else {
+            product.style.display = "none"; // Hide if it doesn't match
+        }
     });
+
+    // If no products match the search, show the "No results" message
+    if (!matchesFound) {
+        noResultsMessage.style.display = "block";
+    } else {
+        noResultsMessage.style.display = "none";
+    }
+});

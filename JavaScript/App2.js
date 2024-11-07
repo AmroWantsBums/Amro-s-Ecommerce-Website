@@ -3,6 +3,7 @@ let HEIGHT = 590,
 
 const tooltipPlaceholder = document.getElementById('tooltipPlaceholder');    
 const mainPanel = document.querySelector("#mainPanel");
+const filterDisplay = document.querySelector("#filterSeperator");
 
 // Create the SVG element in the specified container and set its height and width.
 let svg = d3
@@ -70,6 +71,7 @@ if (fetchedCarData) {
 
 // The CreateBubbles function generates the visual representation of the data by creating circles for each car model.
 function CreateBubbles(data) {
+    document.getElementById('loading').style.display = 'none';
     let bubbles = svg
         .selectAll("circle")
         .data(data)
@@ -156,6 +158,12 @@ function CreateBubbles(data) {
                             .select(".tooltipImage")
                             .attr("src", `../Catalogue/Images/${d.name.replace(/\//g, '')}.jpg`);
                         
+                        d3.select("#tooltip")
+                            .select(".tooltipImage")
+                            .attr("alt", `Image of ferrari ${d.name.replace(/\//g, '')}`);
+                        
+    
+                        
                         const resetButton = document.createElement('button');
                         const resetText = document.createElement('span'); 
                         resetText.textContent = "Reset"; 
@@ -215,6 +223,7 @@ function CreateBubbles(data) {
     // Add event listener for the split button
     document.getElementById("splitButton").addEventListener("click", () => {
         splitCarsByYear(simulation, bubbles, text);
+        filterDisplay.style.display = "block";
     });
     }
 
@@ -236,6 +245,7 @@ function resetBubbles() {
         .force("x", d3.forceX(WIDTH / 2).strength(0.05))  // Re-center bubbles in X axis
         .alpha(1)
         .restart();
+        filterDisplay.style.display = "none";
 }
 }
 

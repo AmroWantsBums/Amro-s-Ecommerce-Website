@@ -55,6 +55,7 @@ aside{
 }
 
 .Buttons {
+    animation: loadFromTop 1s ease-out;
     width: 6rem;
     height: 3rem;
     border-radius: 2rem;
@@ -100,6 +101,7 @@ aside{
     width: 18rem;
     z-index: 1;
     top: 2rem;
+    animation: loadFromLeft 1s ease-out;
 }
 
 #content{
@@ -113,11 +115,13 @@ aside{
     left: 13rem;
     top: rem;
     width: 15rem;
+    animation: loadFromLeft 1s ease-out;
 }
 
 #heading{
     font-size: 3rem;    
     margin-bottom: 0;
+    animation: loadFromLeft 1s ease-out;
 }
 
 #heading span{
@@ -127,4 +131,37 @@ aside{
 
 #secondEssayName{
     margin-top: -1rem;
+}
+
+@keyframes loadFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes loadFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes loadFromTop {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

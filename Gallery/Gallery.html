@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bubble Chart of Cars</title>
+    <meta name="description" content="Discover Ferrari's iconic models in our gallery. Browse and select each car to explore its unique features, from design to performance, capturing the essence of Ferrari’s legacy and innovation." />
+    <meta name="keywords" content="Ferrari gallery, car gallery, Ferrari images, luxury car showcase, car visualization, vehicle display, car models, car selection">
+    <meta name="author" content="Amro Ahmed">
+    <title>Gallery</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script type="module"> import { loadNavbar } from "../JavaScript/Navigation_Bar.js"
         loadNavbar("Gallery")
@@ -12,7 +15,7 @@
     <link rel="stylesheet" href="../CSS/NavigationBar_Display.css">
     <link rel="stylesheet" href="../CSS/Gallery_Display.css">
     <link rel="stylesheet" href="../CSS/General_Styling.css">
-    <link rel="icon" href="../Home/Images/Ferrari Logo.png" type="image/x-icon">
+    <link rel="icon" href="../Home/Images/Fearrari Header Logo.png" type="image/x-icon">
 </head>
 
 <body>
@@ -24,7 +27,7 @@
     </header>
 
     <section id="mainPanel">
-        <img src="./Images/LeftPanelImage.jpg" alt="" id="LeftPanelImage">
+        <img src="./Images/LeftPanelImage.jpg" alt="Image of ferrari" id="LeftPanelImage">
         <h1 id="heading1"><span id="span1">Explo</span><span id="span2">re Our Collection</span></h1>
         <div id="descriptionSection">
             Discover Ferrari's most iconic models and the engineering marvels behind them. Each car tells a story of
@@ -33,13 +36,18 @@
         </div>
         
         <div id="filterButtons">
-            <button id="splitButton">Split Cars by Year</button>
-            <button id="resetButton">Reset</button>
+            <button id="splitButton" class="Buttons"><span>Split Cars by Year</span></button>
+            <button id="resetButton" class="Buttons"><span>Reset</span></button>
 
         </div>
 
         <section id="wordMap">
-
+            <div id="loading">Loading...</div>
+            <div id="filterSeperator">
+                <div id="lineSeperator"></div>
+                <h2 id="preHeading">pre-2010</h2>
+                <h2 id="postHeading">post-2010</h2>
+            </div>
         </section>
 
         <div id="testDriveSection">
@@ -59,7 +67,7 @@
         <div id="tooltipPlaceholder">Ferrari</div>
 
         <div id="tooltip">
-            <img src="" alt="" class="tooltipImage">
+            <img src="" alt="Image of Ferrari" class="tooltipImage">
             <h4 id="tooltipName"></h4>
             <h4 id="tooltipPrice"></h4>
             <h4 id="tooltipHorsepower"></h4>

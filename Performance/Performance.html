@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D3 Race Finishing Positions</title>
+    <title>Performances</title>
+    <meta name="description" content="Explore the high-performance legacy of Ferrari with profiles of top drivers and in-depth performance statistics. Discover what makes Ferrari a leader in speed and excellence.">
+    <meta name="keywords" content="Ferrari performance, Ferrari drivers, performance statistics, racing legacy, high-performance cars, speed, excellence, motorsport achievements">
+    <meta name="author" content="Amro Ahmed">
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <link rel="stylesheet" href="../CSS/Performance_Display.css">
     <script type="module"> import { loadNavbar } from "../JavaScript/Navigation_Bar.js"
@@ -12,6 +15,8 @@
     </script>
     <link rel="stylesheet" href="../CSS/NavigationBar_Display.css">
     <link rel="stylesheet" href="../CSS/General_Styling.css">
+    <link rel="icon" href="../Home/Images/Fearrari Header Logo.png" type="image/x-icon">
+    <script src="../JavaScript/Performance_Interactivity.js" defer></script>
 </head>
 
 <body>
@@ -42,11 +47,9 @@
             <button id="all" class="Buttons"><span>Show All Races</span></button>
         </div>
         <input type="range" id="slider" min="0" max="124" step="1" value="0" />
+        <div id="sliderText">Select a specific race by moving the slider parallel to the circle</div>
 
     </section>
-
-    <!-- <img src="../Performance/Images/Charles Leclerc.png" alt="" id="CLimage"> -->
-
 
     <section id="rightPanel">
         <h1 id="heading1">Performance Unleashed</h1>
@@ -57,7 +60,7 @@
             yourself why Ferrari stands as the pinnacle of performance engineering.
         </div>
 
-        <img src="./Images/f1.jpg" alt="" id="f1image">
+        <img src="./Images/f1.jpg" alt="Image of ferrari in race track" id="f1image">
 
         <section id="subPanel">
 
@@ -78,6 +81,8 @@
                 excellence and relentless pursuit of victory embody the core values of Ferrari. Join us in following
                 Leclerc’s journey as he races toward a new era of success for Ferrari.
             </p>
+
+            <button id="startJourneyButton" class="Buttons"><span>Start your journey</span></button>
         </section>
     </section>
 

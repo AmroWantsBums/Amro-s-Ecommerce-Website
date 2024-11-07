@@ -5,6 +5,7 @@
     left: 45rem;
     top: 6rem;
     border-radius: 20px;
+    animation: loadFromRight 1s ease-out;
 }
 
 #textOne{
@@ -12,6 +13,7 @@
     position: relative;
     left: 1rem;
     border-right: solid 1px;
+    animation: loadFromLeft 1s ease-out;
 }
 
 #textTwo{
@@ -19,6 +21,7 @@
     position: absolute;
     top: 22.8rem;
     left: 27rem;
+    animation: loadFromLeft 1s ease-out;
 }
 
 h1{
@@ -26,4 +29,38 @@ h1{
     width: 55rem;
     text-align: center;
     margin: 10px;
+    animation: loadFromLeft 1s ease-out;
+}
+
+@keyframes loadFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes loadFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes loadFromTop {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

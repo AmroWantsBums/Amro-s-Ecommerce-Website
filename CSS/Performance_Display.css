@@ -164,3 +164,15 @@ body {
     left: 23rem;
     top: 23rem;
 }
+
+#sliderText{
+    position: relative;
+    top: 27rem;
+    left: 6rem;
+}
+
+#startJourneyButton{
+    position: relative;
+    bottom: 1.4rem;
+    width: 30rem;
+}

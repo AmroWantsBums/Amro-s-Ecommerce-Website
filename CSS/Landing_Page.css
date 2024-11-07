@@ -17,6 +17,7 @@
     margin: 0; /* Ensure no margin */
     position: relative;
     left: rem;
+    animation: loadFromLeft 1s ease-out;
 }
 
 #LandingImage {
@@ -25,6 +26,7 @@
     border-radius: 20px;
     position: relative;
     left: -18rem;
+    animation: loadFromLeft 1s ease-out;
 }
 
 #browseButton {
@@ -51,6 +53,7 @@
     border-width: 0;
     background-color: rgb(230, 228, 228);
     z-index: 112;
+    animation: loadFromLeft 1s ease-out;
 }
 
 #TextDisplay1{
@@ -58,6 +61,7 @@
     left: 55rem;
     top: 12rem;
     width: 32rem;
+    animation: loadFromRight 2s ease-out;
 }
 
 #TextDisplay1 p {
@@ -81,6 +85,7 @@
     width: 35rem;
     position: relative;
     left: 1rem;
+    animation: loadFromLeft 1s ease-out;
 }
 
 
@@ -253,4 +258,26 @@
         height: 3rem;
     }
 
+}
+
+@keyframes loadFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes loadFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

@@ -38,6 +38,7 @@
     width: 80rem;
     border-radius: 20px;
     overflow: hidden;
+    animation: loadFromLeft 1s ease-out;
 }   
 
 #selection{
@@ -124,6 +125,7 @@
     top: 4rem;
     border-radius: 20px;
     padding: 2rem;
+    animation: loadFromRight 1s ease-out;
 }
 
 #colorPaletteP{
@@ -159,4 +161,27 @@
     position: relative;
     right: 9rem;
     top: 2rem;
+}
+
+
+@keyframes loadFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes loadFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

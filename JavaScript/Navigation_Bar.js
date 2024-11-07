@@ -5,7 +5,7 @@ const navPages = [
     {name: "Catalogue", href: '/Amro-s-Ecommerce-Website/Catalogue/Catalogue.html'},    
     {name: "Performances", href: '/Amro-s-Ecommerce-Website/Performance/Performance.html'},
     {name: "About Me", href: '/Amro-s-Ecommerce-Website/Course Work/About_Me.html'},
-    {name: "Essay", href: '/Amro-s-Ecommerce-Website/Course Work/Essay.html'},
+    {name: "Essays", href: '/Amro-s-Ecommerce-Website/Course Work/Essay.html'},
     {name: "Design", href: '/Amro-s-Ecommerce-Website/Course Work/Web_Design.html'}
 ];
 

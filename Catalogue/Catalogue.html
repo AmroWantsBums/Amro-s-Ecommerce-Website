@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Gallery</title>
+    <meta name="description" content="Explore our Ferrari catalogue, showcasing a range of models with detailed specifications, performance stats, and pricing. Select your favorite car to view more information and schedule a test drive, experiencing Ferrari's excellence firsthand." />
+    <meta name="keywords" content="Ferrari, car catalogue, car models, Ferrari models, vehicle selection, test drive booking, car details, luxury cars">
+    <meta name="author" content="Amro Ahmed">
+    <title>Catalogue</title>
     <link rel="stylesheet" href="../CSS/Product_Display.css">
     <script type="module">
         import { viewCarFunctionality } from '../JavaScript/Product_Display.js';
@@ -14,6 +17,7 @@
         loadNavbar("Catalogue")
     </script>
     <link rel="stylesheet" href="../CSS/NavigationBar_Display.css">
+    <link rel="icon" href="../Home/Images/Fearrari Header Logo.png" type="image/x-icon">
 </head>
 
 <body>
@@ -27,16 +31,17 @@
 
     <aside>
         <div id="desc">
-            <div id="searchSection">
-                <h1>Search</h1>
-                <input type="text" placeholder="search">
-            </div>
             <h1>Interested in the Journey?</h1>
             <p>
                 Explore the performance and price history of each Ferrari model to see how it’s evolved over time. Click on
                 a car to view its price trend graph and discover the story behind its design, craftsmanship, and
                 market value. Select a vehicle to view its trends and performance stats.
             </p>
+            <div id="searchSection">
+                <h2>Looking for something specific?</h2>
+                <input type="text" placeholder="search">
+            </div>
+            
             <div id="secondPart">
                 <h2>Still not convinced?</h2>
                 <p>
@@ -50,7 +55,8 @@
     <div id="main">
 
     </div>
-
+    
+    <div id="noSearchResults">Your search does not match any cars</div>
 
     <script src="../JavaScript/Product_Display.js" defer></script>
 </body>
