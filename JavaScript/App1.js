@@ -56,6 +56,7 @@ function CreateDataVisualization(carFetchLink) {
             yScale.domain([0, d3.max(dataPoints, d => d.y)]); 
             createxScale();  
             createyScale();  
+            document.getElementById('loading').style.display = 'none';
 
             // Render circles on the SVG canvas for each data point.
             svg.selectAll("circle")
